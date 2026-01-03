@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>AI Study Assistant - Get Instant Help | IITM Helper</title>
+    <meta name="title" content="AI Study Assistant - Get Instant Help | IITM Helper">
+    <meta name="description"
+        content="AI-powered study assistant for IITM BS students. Get instant help with concepts, summaries, practice questions, and exam preparation.">
+    <meta name="keywords"
+        content="AI Study Assistant, IITM AI Helper, Study Help, Concept Explanation, Practice Questions">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://iitmhelper.online/pages/ai-assistant.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iitmhelper.online/pages/ai-assistant.html">
+    <meta property="og:title" content="AI Study Assistant - IITM Helper">
+    <meta property="og:description" content="AI-powered study assistant for IITM BS students powered by Google Gemini.">
+    <meta property="og:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://iitmhelper.online/pages/ai-assistant.html">
+    <meta property="twitter:title" content="AI Study Assistant - IITM Helper">
+    <meta property="twitter:description" content="Get instant help with your IITM studies using AI.">
+    <meta property="twitter:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="../css/ai-assistant.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">IITM <span
+                                class="gradient-text">HELPER</span></a></h1>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="../index.html#resources" class="nav-link">Resources</a>
+                    <a href="news.html" class="nav-link">News</a>
+                    <a href="gpa-calculator.html" class="nav-link">GPA Tools</a>
+                    <a href="study-plus.html" class="nav-link">Study Plus</a>
+                    <a href="ai-assistant.html" class="nav-link active">AI Assistant</a>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank" class="nav-link">Community</a>
+                </nav>
+
+                <!-- Theme Chooser -->
+                <div class="theme-chooser">
+                    <button class="theme-toggle-btn" id="themeToggleBtn">
+                        <span class="theme-icon">🎨</span>
+                        <span>Theme</span>
+                    </button>
+                    <div class="theme-dropdown" id="themeDropdown">
+                        <div class="theme-dropdown-header">Choose Theme</div>
+                        <div class="theme-current">Current: <strong id="currentTheme">Signature</strong></div>
+                        <div class="theme-grid">
+                            <div class="theme-option theme-signature active" data-theme="signature" title="Signature">
+                                <span class="theme-option-label">Signature</span>
+                            </div>
+                            <div class="theme-option theme-aurora" data-theme="aurora" title="Aurora">
+                                <span class="theme-option-label">Aurora</span>
+                            </div>
+                            <div class="theme-option theme-sunset" data-theme="sunset" title="Sunset">
+                                <span class="theme-option-label">Sunset</span>
+                            </div>
+                            <div class="theme-option theme-deep" data-theme="deep" title="Deep">
+                                <span class="theme-option-label">Deep</span>
+                            </div>
+                            <div class="theme-option theme-mystic" data-theme="mystic" title="Mystic">
+                                <span class="theme-option-label">Mystic</span>
+                            </div>
+                            <div class="theme-option theme-royal" data-theme="royal" title="Royal">
+                                <span class="theme-option-label">Royal</span>
+                            </div>
+                            <div class="theme-option theme-crimson" data-theme="crimson" title="Crimson">
+                                <span class="theme-option-label">Crimson</span>
+                            </div>
+                            <div class="theme-option theme-electric" data-theme="electric" title="Electric">
+                                <span class="theme-option-label">Electric</span>
+                            </div>
+                            <div class="theme-option theme-emerald" data-theme="emerald" title="Emerald">
+                                <span class="theme-option-label">Emerald</span>
+                            </div>
+                            <div class="theme-option theme-midnight" data-theme="midnight" title="Midnight">
+                                <span class="theme-option-label">Midnight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">AI Study <span class="gradient-text">Assistant</span></h1>
+                <p class="page-subtitle">Your intelligent companion for IITM BS studies. Ask questions, get
+                    explanations, generate summaries, and practice with AI-powered quizzes.</p>
+            </div>
+        </section>
+
+        <!-- AI Assistant Section -->
+        <section class="ai-assistant-section">
+            <div class="container">
+                <div class="ai-container">
+                    <!-- Sidebar with Quick Actions -->
+                    <div class="ai-sidebar">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" data-prompt="Explain the concept of">
+                                <span class="action-icon">💡</span>
+                                <span class="action-text">Explain Concept</span>
+                            </button>
+                            <button class="quick-action-btn" data-prompt="Summarize this topic:">
+                                <span class="action-icon">📝</span>
+                                <span class="action-text">Generate Summary</span>
+                            </button>
+                            <button class="quick-action-btn" data-prompt="Create 5 practice questions on">
+                                <span class="action-icon">❓</span>
+                                <span class="action-text">Practice Quiz</span>
+                            </button>
+                            <button class="quick-action-btn" data-prompt="What are the key differences between">
+                                <span class="action-icon">🔍</span>
+                                <span class="action-text">Compare Topics</span>
+                            </button>
+                            <button class="quick-action-btn" data-prompt="Provide step-by-step solution for">
+                                <span class="action-icon">📊</span>
+                                <span class="action-text">Solve Problem</span>
+                            </button>
+                            <button class="quick-action-btn" data-prompt="Create flashcards for">
+                                <span class="action-icon">🎴</span>
+                                <span class="action-text">Make Flashcards</span>
+                            </button>
+                        </div>
+
+                        <div class="ai-tips">
+                            <h4>💡 Tips for Best Results</h4>
+                            <ul>
+                                <li>Be specific with your questions</li>
+                                <li>Mention the course name if relevant</li>
+                                <li>Ask for examples when needed</li>
+                                <li>Request step-by-step explanations</li>
+                            </ul>
+                        </div>
+
+                        <button class="clear-chat-btn" id="clearChatBtn">
+                            <span>🗑️</span> Clear Chat
+                        </button>
+                    </div>
+
+                    <!-- Chat Interface -->
+                    <div class="ai-chat-container">
+                        <div class="chat-header">
+                            <div class="chat-status">
+                                <span class="status-indicator online"></span>
+                                <span class="status-text">AI Assistant Online</span>
+                            </div>
+                            <div class="chat-info">
+                                <span class="info-icon" title="Powered by Google Gemini">ⓘ</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages" id="chatMessages">
+                            <!-- Welcome Message -->
+                            <div class="message ai-message">
+                                <div class="message-avatar">🤖</div>
+                                <div class="message-content">
+                                    <div class="message-text">
+                                        <p>Hello! I'm your AI Study Assistant, powered by Google Gemini. 👋</p>
+                                        <p>I'm here to help you with your IITM BS studies. I can:</p>
+                                        <ul>
+                                            <li>Explain complex concepts in simple terms</li>
+                                            <li>Generate summaries and study notes</li>
+                                            <li>Create practice questions and quizzes</li>
+                                            <li>Help solve problems step-by-step</li>
+                                            <li>Compare and contrast different topics</li>
+                                        </ul>
+                                        <p>Try using the Quick Actions on the left, or just type your question below!
+                                        </p>
+                                    </div>
+                                    <div class="message-time">Just now</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-input-container">
+                            <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <form class="chat-input-form" id="chatForm">
+                                <textarea class="chat-input" id="chatInput"
+                                    placeholder="Ask me anything about your IITM studies..." rows="1"></textarea>
+                                <button type="submit" class="send-btn" id="sendBtn">
+                                    <span class="send-icon">📤</span>
+                                </button>
+                            </form>
+                            <div class="input-hint">Press Enter to send, Shift+Enter for new line</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>IITM <span class="gradient-text">HELPER</span></h3>
+                    <p>Made for IITM BS, made by IITM students 🎓</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="https://study.iitm.ac.in/ds/" target="_blank">Official Website</a>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank">Discourse Community</a>
+                    <a href="https://ds.study.iitm.ac.in/auth/login" target="_blank">Student Portal</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank" class="social-link">
+                        💬 Join Discourse
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-link">
+                        💻 GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IITM Helper. Built with ❤️ for IITM BS students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../js/theme-switcher.js"></script>
+    <script src="../js/ai-assistant.js"></script>
+</body>
+
+</html>

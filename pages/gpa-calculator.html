@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>GPA Calculator - IITM BS Data Science | IITM Helper</title>
+    <meta name="title" content="GPA Calculator - IITM BS Data Science | IITM Helper">
+    <meta name="description"
+        content="Free GPA and CGPA calculator for IITM BS Data Science students. Calculate grades, track academic progress, and plan your semester with ease.">
+    <meta name="keywords" content="IITM GPA Calculator, CGPA Calculator, IIT Madras, BS Data Science, Grade Calculator">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://iitmhelper.online/pages/gpa-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iitmhelper.online/pages/gpa-calculator.html">
+    <meta property="og:title" content="GPA Calculator - IITM BS Data Science">
+    <meta property="og:description"
+        content="Free GPA and CGPA calculator for IITM BS students. Track your academic progress.">
+    <meta property="og:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://iitmhelper.online/pages/gpa-calculator.html">
+    <meta property="twitter:title" content="GPA Calculator - IITM BS Data Science">
+    <meta property="twitter:description" content="Free GPA and CGPA calculator for IITM BS students.">
+    <meta property="twitter:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../js/gpa-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">IITM <span
+                                class="gradient-text">HELPER</span></a></h1>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                    <a href="../index.html#resources" class="nav-link">Resources</a>
+                    <a href="news.html" class="nav-link">News</a>
+                    <a href="gpa-calculator.html" class="nav-link active">GPA Tools</a>
+                    <a href="study-plus.html" class="nav-link">Study Plus</a>
+                    <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank" class="nav-link">Community</a>
+                </nav>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding: 3rem 0;">
+        <div class="container">
+            <h1 class="section-title">GPA <span class="gradient-text">Calculator</span></h1>
+            <p class="section-subtitle">Calculate your GPA and CGPA using IITM's grading system</p>
+
+            <!-- Grading System Reference -->
+            <div class="grading-reference">
+                <h3>IITM Grading Scale</h3>
+                <div class="grade-grid">
+                    <div class="grade-item">
+                        <div class="grade-letter" style="background: linear-gradient(135deg, #10b981, #059669);">S</div>
+                        <div class="grade-points">10</div>
+                        <div class="grade-range">T ≥ 90</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-letter" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">A</div>
+                        <div class="grade-points">9</div>
+                        <div class="grade-range">90 > T ≥ 80</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-letter" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">B</div>
+                        <div class="grade-points">8</div>
+                        <div class="grade-range">80 > T ≥ 70</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-letter" style="background: linear-gradient(135deg, #f59e0b, #d97706);">C</div>
+                        <div class="grade-points">7</div>
+                        <div class="grade-range">70 > T ≥ 60</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-letter" style="background: linear-gradient(135deg, #eab308, #ca8a04);">D</div>
+                        <div class="grade-points">6</div>
+                        <div class="grade-range">60 > T ≥ 50</div>
+                        <div class="grade-status pass">Pass</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-letter" style="background: linear-gradient(135deg, #f97316, #ea580c);">E</div>
+                        <div class="grade-points">4</div>
+                        <div class="grade-range">50 > T ≥ 40</div>
+                        <div class="grade-status fail">Fail</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-letter" style="background: linear-gradient(135deg, #ef4444, #dc2626);">F</div>
+                        <div class="grade-points">0</div>
+                        <div class="grade-range">T < 40</div>
+                                <div class="grade-status fail">Fail</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter" style="background: linear-gradient(135deg, #6b7280, #4b5563);">U
+                            </div>
+                            <div class="grade-points">0</div>
+                            <div class="grade-range">Absent</div>
+                            <div class="grade-status fail">Fail</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab('gpa')">GPA Calculator</button>
+                    <button class="tab-btn" onclick="switchTab('cgpa')">CGPA Calculator</button>
+                    <button class="tab-btn" onclick="switchTab('predictor')">Grade Predictor</button>
+                </div>
+
+                <!-- GPA Calculator Tab -->
+                <div id="gpa-tab" class="tab-content active">
+                    <div class="calculator-card">
+                        <h3>Single Term GPA Calculator</h3>
+                        <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Calculate your GPA for a
+                            single term</p>
+
+                        <div id="gpa-courses"></div>
+
+                        <button class="btn btn-secondary" onclick="addCourse('gpa')" style="margin-top: 1rem;">
+                            + Add Course
+                        </button>
+
+                        <div class="result-box">
+                            <div class="result-label">Your GPA</div>
+                            <div class="result-value" id="gpa-result">0.00</div>
+                            <div class="result-info" id="gpa-info"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CGPA Calculator Tab -->
+                <div id="cgpa-tab" class="tab-content">
+                    <div class="calculator-card">
+                        <h3>Cumulative GPA (CGPA) Calculator</h3>
+                        <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Calculate your overall CGPA
+                            across multiple terms</p>
+
+                        <div id="cgpa-terms"></div>
+
+                        <button class="btn btn-secondary" onclick="addTerm()" style="margin-top: 1rem;">
+                            + Add Term
+                        </button>
+
+                        <div class="result-box">
+                            <div class="result-label">Your CGPA</div>
+                            <div class="result-value" id="cgpa-result">0.00</div>
+                            <div class="result-info" id="cgpa-info"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade Predictor Tab -->
+                <div id="predictor-tab" class="tab-content">
+                    <div class="calculator-card">
+                        <h3>Grade Predictor</h3>
+                        <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Find out what grades you
+                            need to achieve your target CGPA</p>
+
+                        <div class="input-group">
+                            <label>Current CGPA</label>
+                            <input type="number" id="current-cgpa" min="0" max="10" step="0.01" placeholder="e.g., 8.5">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Credits Completed</label>
+                            <input type="number" id="completed-credits" min="0" step="1" placeholder="e.g., 32">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Target CGPA</label>
+                            <input type="number" id="target-cgpa" min="0" max="10" step="0.01" placeholder="e.g., 9.0">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Upcoming Credits</label>
+                            <input type="number" id="upcoming-credits" min="0" step="1" placeholder="e.g., 16">
+                        </div>
+
+                        <button class="btn btn-primary" onclick="predictGrade()" style="margin-top: 1rem;">
+                            Calculate Required GPA
+                        </button>
+
+                        <div class="result-box" id="predictor-result" style="display: none;">
+                            <div class="result-label">Required GPA for Next Term</div>
+                            <div class="result-value" id="required-gpa">0.00</div>
+                            <div class="result-info" id="predictor-info"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>IITM <span class="gradient-text">HELPER</span></h3>
+                    <p>Made for IITM BS, made by IITM students 🎓</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IITM Helper. Built with ❤️ for IITM BS students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../data/courses.js"></script>
+    <script src="../js/gpa-calculator.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

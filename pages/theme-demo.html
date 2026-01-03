@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Chooser Demo - IITM Helper</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>IITM <span class="gradient-text">HELPER</span></h1>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="../index.html#resources" class="nav-link">Resources</a>
+                    <a href="news.html" class="nav-link">News</a>
+                    <a href="#" class="nav-link active">Theme Demo</a>
+                </nav>
+
+                <!-- Theme Chooser -->
+                <div class="theme-chooser">
+                    <button class="theme-toggle-btn" id="themeToggleBtn">
+                        <span class="theme-icon">🎨</span>
+                        <span>Theme</span>
+                    </button>
+                    <div class="theme-dropdown" id="themeDropdown">
+                        <div class="theme-dropdown-header">Choose Theme</div>
+                        <div class="theme-current">Current: <strong id="currentTheme">Signature</strong></div>
+                        <div class="theme-grid">
+                            <div class="theme-option theme-signature active" data-theme="signature" title="Signature">
+                                <span class="theme-option-label">Signature</span>
+                            </div>
+                            <div class="theme-option theme-aurora" data-theme="aurora" title="Aurora">
+                                <span class="theme-option-label">Aurora</span>
+                            </div>
+                            <div class="theme-option theme-sunset" data-theme="sunset" title="Sunset">
+                                <span class="theme-option-label">Sunset</span>
+                            </div>
+                            <div class="theme-option theme-deep" data-theme="deep" title="Deep">
+                                <span class="theme-option-label">Deep</span>
+                            </div>
+                            <div class="theme-option theme-mystic" data-theme="mystic" title="Mystic">
+                                <span class="theme-option-label">Mystic</span>
+                            </div>
+                            <div class="theme-option theme-royal" data-theme="royal" title="Royal">
+                                <span class="theme-option-label">Royal</span>
+                            </div>
+                            <div class="theme-option theme-crimson" data-theme="crimson" title="Crimson">
+                                <span class="theme-option-label">Crimson</span>
+                            </div>
+                            <div class="theme-option theme-electric" data-theme="electric" title="Electric">
+                                <span class="theme-option-label">Electric</span>
+                            </div>
+                            <div class="theme-option theme-emerald" data-theme="emerald" title="Emerald">
+                                <span class="theme-option-label">Emerald</span>
+                            </div>
+                            <div class="theme-option theme-midnight" data-theme="midnight" title="Midnight">
+                                <span class="theme-option-label">Midnight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">
+                        Theme Chooser<br>
+                        <span class="gradient-text">Demo Page</span>
+                    </h2>
+                    <p class="hero-subtitle">
+                        Click the "🎨 Theme" button in the header to try different color themes!<br>
+                        Your theme preference will be saved automatically.
+                    </p>
+                </div>
+
+                <!-- Theme Preview Cards -->
+                <div class="milestones">
+                    <div class="milestone-card">
+                        <div class="milestone-number" data-target="10">10</div>
+                        <div class="milestone-label">Color Themes</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">✨</div>
+                        <div class="milestone-label">Beautiful Gradients</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">💾</div>
+                        <div class="milestone-label">Auto-Save</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Available <span class="gradient-text">Themes</span></h2>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💖</div>
+                        <h3>Signature</h3>
+                        <p>Default pink & purple gradient theme</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌊</div>
+                        <h3>Aurora</h3>
+                        <p>Cool cyan & blue ocean vibes</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌅</div>
+                        <h3>Sunset</h3>
+                        <p>Warm orange & yellow sunset colors</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌌</div>
+                        <h3>Deep</h3>
+                        <p>Deep blue & indigo night sky</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🍃</div>
+                        <h3>Mystic</h3>
+                        <p>Fresh green & lime nature theme</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👑</div>
+                        <h3>Royal</h3>
+                        <p>Elegant purple & violet royalty</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <h3>Crimson</h3>
+                        <p>Bold red & pink fire theme</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Electric</h3>
+                        <p>Vibrant blue & purple energy</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💚</div>
+                        <h3>Emerald</h3>
+                        <p>Rich green & teal gemstone</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌙</div>
+                        <h3>Midnight</h3>
+                        <p>Golden & purple night theme</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>IITM <span class="gradient-text">HELPER</span></h3>
+                    <p>Made for IITM BS, made by IITM students 🎓</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IITM Helper. Built with ❤️ for IITM BS students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../js/theme-switcher.js"></script>
+</body>
+
+</html>

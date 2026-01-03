@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Diploma Pathways - Course Planning Guide | IITM Helper</title>
+    <meta name="title" content="Diploma Pathways - Course Planning Guide | IITM Helper">
+    <meta name="description"
+        content="Visual diploma pathway planner for IITM BS students. Choose from 7 different pathways with term-by-term schedules and downloadable PDF guide.">
+    <meta name="keywords"
+        content="IITM Diploma Pathways, Course Planning, Diploma in Programming, Diploma in Data Science, IITM Helper">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://iitmhelper.online/pages/diploma-pathways.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iitmhelper.online/pages/diploma-pathways.html">
+    <meta property="og:title" content="Diploma Pathways - Course Planning Guide">
+    <meta property="og:description"
+        content="Visual diploma pathway planner with 7 different options and term-by-term schedules.">
+    <meta property="og:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://iitmhelper.online/pages/diploma-pathways.html">
+    <meta property="twitter:title" content="Diploma Pathways - IITM Helper">
+    <meta property="twitter:description" content="Visual diploma pathway planner for IITM BS students.">
+    <meta property="twitter:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            color: #e5e7eb;
+            padding-bottom: 3rem;
+        }
+
+        /* Header */
+        .top-header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            transform: translateX(-3px);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* PDF Download Card */
+        .pdf-download-card {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .pdf-icon {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(236, 72, 153, 0.5);
+            color: white;
+        }
+
+        .file-info {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Pathway Tabs */
+        .pathway-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+            padding: 0 1rem;
+        }
+
+        .pathway-tab {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: #e5e7eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .pathway-tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .pathway-tab.active {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Image Container */
+        .pathway-image-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .pathway-image-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pathway-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .pathway-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .pathway-desc {
+            color: #9ca3af;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Attribution */
+        .attribution {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .attribution-text {
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        .attribution-author {
+            color: #a78bfa;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Fix text selection color */
+        ::selection {
+            background: rgba(139, 92, 246, 0.5);
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: rgba(139, 92, 246, 0.5);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pathway-tabs {
+                flex-direction: column;
+            }
+
+            .pathway-tab {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .pathway-image-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="course-selection.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Courses
+                </a>
+                <div class="text-white fw-semibold">Diploma Pathways</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1 class="hero-title">📚 Diploma Course Selection Guide</h1>
+            <p class="hero-subtitle">
+                Complete visual guide to diploma pathways for IITM BS Data Science program.
+                Choose your path based on your goals and schedule.
+            </p>
+        </div>
+
+        <!-- PDF Download Card -->
+        <div class="pdf-download-card">
+            <div class="pdf-icon">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <h3 class="text-white fw-bold mb-2">Download Complete Guide</h3>
+            <p class="text-muted mb-3">Get the comprehensive diploma course selection plan PDF</p>
+            <a href="../assets/Diploma Course Selection Plan by Parampreet Singh.pdf" download class="download-btn">
+                <i class="fas fa-download"></i>
+                <span>Download PDF Guide</span>
+                <span class="badge bg-light text-dark ms-2">87 KB</span>
+            </a>
+            <div class="file-info">
+                <i class="fas fa-info-circle"></i> Created by Parampreet Singh
+            </div>
+        </div>
+
+        <!-- Pathway Tabs -->
+        <div class="pathway-tabs">
+            <button class="pathway-tab active" data-pathway="all">
+                <i class="fas fa-th-large"></i> All Pathways
+            </button>
+            <button class="pathway-tab" data-pathway="mixed-dp-ds">
+                <i class="fas fa-layer-group"></i> Mixed Diploma (DP & DS)
+            </button>
+            <button class="pathway-tab" data-pathway="dp-first">
+                <i class="fas fa-code"></i> Programming First
+            </button>
+            <button class="pathway-tab" data-pathway="ds-first">
+                <i class="fas fa-chart-line"></i> Data Science First
+            </button>
+            <button class="pathway-tab" data-pathway="diploma-ds">
+                <i class="fas fa-database"></i> Diploma in Data Science
+            </button>
+            <button class="pathway-tab" data-pathway="diploma-dp">
+                <i class="fas fa-laptop-code"></i> Diploma in Programming
+            </button>
+            <button class="pathway-tab" data-pathway="single-ds">
+                <i class="fas fa-graduation-cap"></i> Single Diploma (DS)
+            </button>
+            <button class="pathway-tab" data-pathway="single-dp">
+                <i class="fas fa-terminal"></i> Single Diploma (DP)
+            </button>
+        </div>
+
+        <!-- Pathway Images -->
+        <!-- All Pathways View -->
+        <div class="pathway-image-container active" id="all">
+            <h2 class="pathway-title">All Diploma Pathways</h2>
+            <p class="pathway-desc">Complete overview of all available diploma course selection paths</p>
+
+            <div class="mb-5">
+                <h3 class="text-white fw-bold mb-3"><i class="fas fa-laptop-code"></i> Diploma in Programming</h3>
+                <img src="../assets/Diploma in Programming.png" alt="Diploma in Programming" class="pathway-image mb-4">
+            </div>
+
+            <div class="mb-5">
+                <h3 class="text-white fw-bold mb-3"><i class="fas fa-database"></i> Diploma in Data Science</h3>
+                <img src="../assets/Diploma in Data Science.png" alt="Diploma in Data Science"
+                    class="pathway-image mb-4">
+            </div>
+
+            <div class="mb-5">
+                <h3 class="text-white fw-bold mb-3"><i class="fas fa-layer-group"></i> Mixed Diploma - DP & DS</h3>
+                <img src="../assets/Mixed Diploma - DP & DS.png" alt="Mixed Diploma DP and DS"
+                    class="pathway-image mb-4">
+            </div>
+
+            <div class="mb-5">
+                <h3 class="text-white fw-bold mb-3"><i class="fas fa-code"></i> Programming First, Then Data Science
+                </h3>
+                <img src="../assets/Mixed Diploma - DP first then DS.png" alt="Programming First"
+                    class="pathway-image mb-4">
+            </div>
+
+            <div class="mb-5">
+                <h3 class="text-white fw-bold mb-3"><i class="fas fa-chart-line"></i> Data Science First, Then
+                    Programming</h3>
+                <img src="../assets/Mixed Diploma - DS first then DP.png" alt="Data Science First"
+                    class="pathway-image mb-4">
+            </div>
+
+            <div class="mb-5">
+                <h3 class="text-white fw-bold mb-3"><i class="fas fa-terminal"></i> Single Diploma - Programming Only
+                </h3>
+                <img src="../assets/single-diploma-programming.png" alt="Single Diploma Programming"
+                    class="pathway-image mb-4">
+            </div>
+
+            <div class="mb-5">
+                <h3 class="text-white fw-bold mb-3"><i class="fas fa-graduation-cap"></i> Single Diploma - Data Science
+                    Only</h3>
+                <img src="../assets/single-diploma-data-science.png" alt="Single Diploma Data Science"
+                    class="pathway-image mb-4">
+            </div>
+        </div>
+
+        <div class="pathway-image-container" id="mixed-dp-ds">
+            <h2 class="pathway-title">Mixed Diploma - DP & DS</h2>
+            <p class="pathway-desc">Complete both diplomas together with optimized course scheduling</p>
+            <img src="../assets/Mixed Diploma - DP & DS.png" alt="Mixed Diploma DP and DS" class="pathway-image">
+        </div>
+
+        <div class="pathway-image-container" id="dp-first">
+            <h2 class="pathway-title">Programming First, Then Data Science</h2>
+            <p class="pathway-desc">Build strong programming foundation before diving into data science</p>
+            <img src="../assets/Mixed Diploma - DP first then DS.png" alt="Programming First" class="pathway-image">
+        </div>
+
+        <div class="pathway-image-container" id="ds-first">
+            <h2 class="pathway-title">Data Science First, Then Programming</h2>
+            <p class="pathway-desc">Focus on data science and ML before completing programming diploma</p>
+            <img src="../assets/Mixed Diploma - DS first then DP.png" alt="Data Science First" class="pathway-image">
+        </div>
+
+        <div class="pathway-image-container" id="diploma-ds">
+            <h2 class="pathway-title">Diploma in Data Science</h2>
+            <p class="pathway-desc">Complete pathway for Data Science diploma courses</p>
+            <img src="../assets/Diploma in Data Science.png" alt="Diploma in Data Science" class="pathway-image">
+        </div>
+
+        <div class="pathway-image-container" id="diploma-dp">
+            <h2 class="pathway-title">Diploma in Programming</h2>
+            <p class="pathway-desc">Complete pathway for Programming diploma courses</p>
+            <img src="../assets/Diploma in Programming.png" alt="Diploma in Programming" class="pathway-image">
+        </div>
+
+        <div class="pathway-image-container" id="single-ds">
+            <h2 class="pathway-title">Single Diploma - Data Science Only</h2>
+            <p class="pathway-desc">Focused pathway for completing only the Data Science diploma</p>
+            <img src="../assets/single-diploma-data-science.png" alt="Single Diploma Data Science"
+                class="pathway-image">
+        </div>
+
+        <div class="pathway-image-container" id="single-dp">
+            <h2 class="pathway-title">Single Diploma - Programming Only</h2>
+            <p class="pathway-desc">Focused pathway for completing only the Programming diploma</p>
+            <img src="../assets/single-diploma-programming.png" alt="Single Diploma Programming" class="pathway-image">
+        </div>
+
+        <!-- Attribution -->
+        <div class="attribution">
+            <p class="attribution-text">
+                <i class="fas fa-heart text-danger"></i> Pathway guide created by
+            </p>
+            <p class="attribution-author">Parampreet Singh</p>
+            <p class="small mt-2" style="color: #9ca3af;">
+                Thank you for creating this comprehensive guide for IITM students!
+            </p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tab Switching Logic -->
+    <script>
+        const tabs = document.querySelectorAll('.pathway-tab');
+        const containers = document.querySelectorAll('.pathway-image-container');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Hide all containers
+                containers.forEach(c => c.classList.remove('active'));
+                // Show selected container
+                const pathwayId = tab.getAttribute('data-pathway');
+                document.getElementById(pathwayId).classList.add('active');
+
+                // Smooth scroll to image
+                document.getElementById(pathwayId).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

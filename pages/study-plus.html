@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Study Tools - Pomodoro Timer & Notes | IITM Helper</title>
+    <meta name="title" content="Study Tools - Pomodoro Timer & Notes | IITM Helper">
+    <meta name="description"
+        content="Productivity tools for IITM students. Pomodoro timer, note-taking, flashcards, and study planning tools to boost your academic performance.">
+    <meta name="keywords" content="Pomodoro Timer, Study Tools, Note Taking, Flashcards, IITM Study Helper">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://iitmhelper.online/pages/study-plus.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iitmhelper.online/pages/study-plus.html">
+    <meta property="og:title" content="Study Tools - Pomodoro Timer & Notes">
+    <meta property="og:description" content="Productivity tools for IITM students to boost academic performance.">
+    <meta property="og:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://iitmhelper.online/pages/study-plus.html">
+    <meta property="twitter:title" content="Study Tools - IITM Helper">
+    <meta property="twitter:description" content="Pomodoro timer and study tools for IITM students.">
+    <meta property="twitter:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../js/study-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">IITM <span
+                                class="gradient-text">HELPER</span></a></h1>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                    <a href="../index.html#resources" class="nav-link">Resources</a>
+                    <a href="news.html" class="nav-link">News</a>
+                    <a href="gpa-calculator.html" class="nav-link">GPA Tools</a>
+                    <a href="study-plus.html" class="nav-link active">Study Plus</a>
+                    <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank" class="nav-link">Community</a>
+                </nav>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding: 3rem 0;">
+        <div class="container">
+            <h1 class="section-title">Study <span class="gradient-text">Plus</span></h1>
+            <p class="section-subtitle">Productivity tools to enhance your learning experience</p>
+
+            <!-- Tools Grid -->
+            <div class="tools-grid">
+                <!-- Pomodoro Timer -->
+                <div class="tool-card">
+                    <h3>🍅 Pomodoro Timer</h3>
+                    <p>Stay focused with the Pomodoro technique</p>
+
+                    <div class="timer-display">
+                        <div class="time" id="timeDisplay">25:00</div>
+                        <div class="timer-label" id="timerLabel">Focus Time</div>
+                    </div>
+
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="startBtn" onclick="startTimer()">Start</button>
+                        <button class="btn btn-secondary" id="pauseBtn" onclick="pauseTimer()"
+                            style="display: none;">Pause</button>
+                        <button class="btn btn-secondary" onclick="resetTimer()">Reset</button>
+                    </div>
+
+                    <div class="timer-settings">
+                        <div class="setting-item">
+                            <label>Focus (min)</label>
+                            <input type="number" id="focusTime" value="25" min="1" max="60">
+                        </div>
+                        <div class="setting-item">
+                            <label>Break (min)</label>
+                            <input type="number" id="breakTime" value="5" min="1" max="30">
+                        </div>
+                    </div>
+
+                    <div class="session-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="sessionsCompleted">0</div>
+                            <div class="stat-label">Sessions</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="totalMinutes">0</div>
+                            <div class="stat-label">Minutes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Notes -->
+                <div class="tool-card">
+                    <h3>📝 Quick Notes</h3>
+                    <p>Jot down important points while studying</p>
+
+                    <div class="notes-container">
+                        <textarea id="notesArea" placeholder="Start typing your notes here..."></textarea>
+
+                        <div class="notes-actions">
+                            <button class="btn btn-secondary" onclick="saveNotes()">💾 Save</button>
+                            <button class="btn btn-secondary" onclick="clearNotes()">🗑️ Clear</button>
+                            <button class="btn btn-secondary" onclick="downloadNotes()">⬇️ Download</button>
+                        </div>
+
+                        <div class="notes-info">
+                            <span id="charCount">0</span> characters |
+                            <span id="wordCount">0</span> words |
+                            Last saved: <span id="lastSaved">Never</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Focus YouTube -->
+                <div class="tool-card full-width">
+                    <h3>📺 Focus YouTube</h3>
+                    <p>Watch educational videos without distractions</p>
+
+                    <div class="youtube-container">
+                        <input type="text" id="youtubeUrl"
+                            placeholder="Paste YouTube URL here (e.g., https://www.youtube.com/watch?v=...)"
+                            class="youtube-input">
+                        <button class="btn btn-primary" onclick="loadVideo()">Load Video</button>
+                    </div>
+
+                    <div id="videoPlayer" class="video-player"></div>
+
+                    <div class="youtube-tips">
+                        <strong>💡 Tips:</strong> Use this for NPTEL lectures, course videos, or any educational
+                        content. The distraction-free player helps you focus on learning.
+                    </div>
+                </div>
+
+                <!-- Quick Reference -->
+                <div class="tool-card full-width">
+                    <h3>📚 Quick Reference - IITM BS Program</h3>
+                    <p>Essential information at your fingertips</p>
+
+                    <div class="reference-grid">
+                        <div class="reference-card">
+                            <h4>Grading Scale</h4>
+                            <ul>
+                                <li>S = 10 (T ≥ 90)</li>
+                                <li>A = 9 (90 > T ≥ 80)</li>
+                                <li>B = 8 (80 > T ≥ 70)</li>
+                                <li>C = 7 (70 > T ≥ 60)</li>
+                                <li>D = 6 (60 > T ≥ 50) - Pass</li>
+                                <li>E = 4 (50 > T ≥ 40) - Fail</li>
+                                <li>F/U = 0 - Fail</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-card">
+                            <h4>Term Structure</h4>
+                            <ul>
+                                <li>3 terms per year (Jan, May, Sep)</li>
+                                <li>12 weeks of coursework</li>
+                                <li>2 in-person quizzes</li>
+                                <li>1 End Term exam</li>
+                                <li>Up to 4 courses per term</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-card">
+                            <h4>Assessment Pattern</h4>
+                            <ul>
+                                <li>Weekly Assignments (online)</li>
+                                <li>Quiz 1 (Week 4)</li>
+                                <li>Quiz 2 (Week 8)</li>
+                                <li>End Term Exam (1.5 hrs)</li>
+                                <li>Pass: T ≥ 50/100</li>
+                                <li>Qualifier: ≥40% to write End Term</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-card">
+                            <h4>Program Levels</h4>
+                            <ul>
+                                <li>Foundation: 8 courses, 32 credits</li>
+                                <li>Diploma (Programming): 6+2, 27 credits</li>
+                                <li>Diploma (Data Science): 6+2, 27 credits</li>
+                                <li>BSc: 28 credits (Total: 114)</li>
+                                <li>BS: 28 credits (Total: 142)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>IITM <span class="gradient-text">HELPER</span></h3>
+                    <p>Made for IITM BS, made by IITM students 🎓</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IITM Helper. Built with ❤️ for IITM BS students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/study-tools.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

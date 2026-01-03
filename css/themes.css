@@ -1,0 +1,268 @@
+/* ==================== THEME SYSTEM ==================== */
+
+/* Default Theme - Signature (Pink/Purple) */
+:root {
+    --theme-primary: #ff006e;
+    --theme-secondary: #8b5cf6;
+    --theme-name: 'Signature';
+}
+
+/* Aurora Theme (Blue/Cyan) */
+[data-theme="aurora"] {
+    --theme-primary: #06b6d4;
+    --theme-secondary: #3b82f6;
+    --theme-name: 'Aurora';
+}
+
+/* Sunset Theme (Orange/Yellow) */
+[data-theme="sunset"] {
+    --theme-primary: #f97316;
+    --theme-secondary: #eab308;
+    --theme-name: 'Sunset';
+}
+
+/* Deep Theme (Blue/Indigo) */
+[data-theme="deep"] {
+    --theme-primary: #0ea5e9;
+    --theme-secondary: #6366f1;
+    --theme-name: 'Deep';
+}
+
+/* Mystic Theme (Green/Lime) */
+[data-theme="mystic"] {
+    --theme-primary: #84cc16;
+    --theme-secondary: #22c55e;
+    --theme-name: 'Mystic';
+}
+
+/* Royal Theme (Purple/Violet) */
+[data-theme="royal"] {
+    --theme-primary: #a855f7;
+    --theme-secondary: #8b5cf6;
+    --theme-name: 'Royal';
+}
+
+/* Crimson Theme (Red/Pink) */
+[data-theme="crimson"] {
+    --theme-primary: #ef4444;
+    --theme-secondary: #f43f5e;
+    --theme-name: 'Crimson';
+}
+
+/* Electric Theme (Blue/Purple) */
+[data-theme="electric"] {
+    --theme-primary: #3b82f6;
+    --theme-secondary: #8b5cf6;
+    --theme-name: 'Electric';
+}
+
+/* Emerald Theme (Green/Teal) */
+[data-theme="emerald"] {
+    --theme-primary: #10b981;
+    --theme-secondary: #14b8a6;
+    --theme-name: 'Emerald';
+}
+
+/* Midnight Theme (Dark Blue/Purple) */
+[data-theme="midnight"] {
+    --theme-primary: #f59e0b;
+    --theme-secondary: #8b5cf6;
+    --theme-name: 'Midnight';
+}
+
+/* Update color references to use theme variables */
+:root {
+    --color-accent-pink: var(--theme-primary);
+    --color-accent-purple: var(--theme-secondary);
+}
+
+/* ==================== THEME CHOOSER DROPDOWN ==================== */
+.theme-chooser {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-toggle-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-normal);
+    backdrop-filter: blur(10px);
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--theme-primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+}
+
+.theme-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    min-width: 280px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition-normal);
+    z-index: 1000;
+}
+
+.theme-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.theme-dropdown-header {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.theme-current {
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+}
+
+.theme-option {
+    aspect-ratio: 1;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-normal);
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.theme-option::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-1), var(--color-2));
+    transition: var(--transition-normal);
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-option.active {
+    border-color: white;
+    box-shadow: 0 0 0 2px var(--color-bg-secondary), 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.theme-option-label {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    opacity: 0;
+    transition: var(--transition-fast);
+    pointer-events: none;
+}
+
+.theme-option:hover .theme-option-label {
+    opacity: 1;
+    bottom: -20px;
+}
+
+/* Theme Colors */
+.theme-signature {
+    --color-1: #ff006e;
+    --color-2: #8b5cf6;
+}
+
+.theme-aurora {
+    --color-1: #06b6d4;
+    --color-2: #3b82f6;
+}
+
+.theme-sunset {
+    --color-1: #f97316;
+    --color-2: #eab308;
+}
+
+.theme-deep {
+    --color-1: #0ea5e9;
+    --color-2: #6366f1;
+}
+
+.theme-mystic {
+    --color-1: #84cc16;
+    --color-2: #22c55e;
+}
+
+.theme-royal {
+    --color-1: #a855f7;
+    --color-2: #8b5cf6;
+}
+
+.theme-crimson {
+    --color-1: #ef4444;
+    --color-2: #f43f5e;
+}
+
+.theme-electric {
+    --color-1: #3b82f6;
+    --color-2: #8b5cf6;
+}
+
+.theme-emerald {
+    --color-1: #10b981;
+    --color-2: #14b8a6;
+}
+
+.theme-midnight {
+    --color-1: #f59e0b;
+    --color-2: #8b5cf6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .theme-dropdown {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        min-width: 260px;
+    }
+
+    .theme-dropdown.active {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .theme-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

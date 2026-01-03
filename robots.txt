@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /backend/
+Disallow: /.env
+Disallow: /node_modules/
+
+Sitemap: https://iitmhelper.online/sitemap.xml

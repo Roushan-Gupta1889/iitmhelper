@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>News & Updates - IITM BS Program | IITM Helper</title>
+    <meta name="title" content="News & Updates - IITM BS Program | IITM Helper">
+    <meta name="description"
+        content="Latest news and updates about IIT Madras BS Data Science program. Admissions, placements, achievements, and academic announcements.">
+    <meta name="keywords" content="IITM News, BS Data Science Updates, Admissions, Placements, IITM Achievements">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://iitmhelper.online/pages/news.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iitmhelper.online/pages/news.html">
+    <meta property="og:title" content="News & Updates - IITM BS Program">
+    <meta property="og:description" content="Latest news about IIT Madras BS Data Science program.">
+    <meta property="og:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://iitmhelper.online/pages/news.html">
+    <meta property="twitter:title" content="News & Updates - IITM BS Program">
+    <meta property="twitter:description" content="Latest news and updates about IITM BS Data Science.">
+    <meta property="twitter:image" content="https://iitmhelper.online/assets/og-image.jpg">
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="../css/news-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">IITM <span
+                                class="gradient-text">HELPER</span></a></h1>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="../index.html#resources" class="nav-link">Resources</a>
+                    <a href="news.html" class="nav-link active">News</a>
+                    <a href="gpa-calculator.html" class="nav-link">GPA Tools</a>
+                    <a href="study-plus.html" class="nav-link">Study Plus</a>
+                    <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank" class="nav-link">Community</a>
+                </nav>
+
+                <!-- Theme Chooser -->
+                <div class="theme-chooser">
+                    <button class="theme-toggle-btn" id="themeToggleBtn">
+                        <span class="theme-icon">🎨</span>
+                        <span>Theme</span>
+                    </button>
+                    <div class="theme-dropdown" id="themeDropdown">
+                        <div class="theme-dropdown-header">Choose Theme</div>
+                        <div class="theme-current">Current: <strong id="currentTheme">Signature</strong></div>
+                        <div class="theme-grid">
+                            <div class="theme-option theme-signature active" data-theme="signature" title="Signature">
+                                <span class="theme-option-label">Signature</span>
+                            </div>
+                            <div class="theme-option theme-aurora" data-theme="aurora" title="Aurora">
+                                <span class="theme-option-label">Aurora</span>
+                            </div>
+                            <div class="theme-option theme-sunset" data-theme="sunset" title="Sunset">
+                                <span class="theme-option-label">Sunset</span>
+                            </div>
+                            <div class="theme-option theme-deep" data-theme="deep" title="Deep">
+                                <span class="theme-option-label">Deep</span>
+                            </div>
+                            <div class="theme-option theme-mystic" data-theme="mystic" title="Mystic">
+                                <span class="theme-option-label">Mystic</span>
+                            </div>
+                            <div class="theme-option theme-royal" data-theme="royal" title="Royal">
+                                <span class="theme-option-label">Royal</span>
+                            </div>
+                            <div class="theme-option theme-crimson" data-theme="crimson" title="Crimson">
+                                <span class="theme-option-label">Crimson</span>
+                            </div>
+                            <div class="theme-option theme-electric" data-theme="electric" title="Electric">
+                                <span class="theme-option-label">Electric</span>
+                            </div>
+                            <div class="theme-option theme-emerald" data-theme="emerald" title="Emerald">
+                                <span class="theme-option-label">Emerald</span>
+                            </div>
+                            <div class="theme-option theme-midnight" data-theme="midnight" title="Midnight">
+                                <span class="theme-option-label">Midnight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">News & <span class="gradient-text">Updates</span></h1>
+                <p class="page-subtitle">Stay informed with the latest announcements, achievements, and updates from the
+                    IITM BS Data Science program</p>
+            </div>
+        </section>
+
+        <!-- News Timeline -->
+        <section class="news-timeline-section">
+            <div class="container">
+                <!-- Filter Tabs -->
+                <div class="news-filters">
+                    <button class="filter-btn active" data-filter="all">All Updates</button>
+                    <button class="filter-btn" data-filter="placements">Placements</button>
+                    <button class="filter-btn" data-filter="admissions">Admissions</button>
+                    <button class="filter-btn" data-filter="achievements">Achievements</button>
+                    <button class="filter-btn" data-filter="academic">Academic</button>
+                </div>
+
+                <!-- News Timeline -->
+                <div class="news-timeline">
+                    <!-- January 2026 - Admissions -->
+                    <div class="timeline-item" data-category="admissions">
+                        <div class="timeline-date">
+                            <span class="date-badge">January 2026</span>
+                            <span class="category-tag admissions">Admissions</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>🚀 January 2026 Admissions Now Open!</h2>
+                            <p>IIT Madras BS Data Science program has officially opened applications for the January
+                                2026 batch. This marks another milestone in making quality education accessible to
+                                students across India and globally.</p>
+
+                            <h3>Key Dates:</h3>
+                            <ul>
+                                <li><strong>Application Opens:</strong> January 1, 2026</li>
+                                <li><strong>Last Date to Apply:</strong> January 31, 2026</li>
+                                <li><strong>Qualifier Exam:</strong> February 2026</li>
+                                <li><strong>Classes Begin:</strong> March 2026</li>
+                            </ul>
+
+                            <h3>What's New:</h3>
+                            <ul>
+                                <li>Enhanced online learning platform with AI-powered study tools</li>
+                                <li>Expanded scholarship opportunities for deserving students</li>
+                                <li>New elective courses in Generative AI and Advanced Analytics</li>
+                                <li>Improved placement support with dedicated career counseling</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Source:</p>
+                                <div class="source-links">
+                                    <a href="https://study.iitm.ac.in/ds/" target="_blank" class="source-link">IITM
+                                        Official Website</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/" target="_blank" class="read-more-btn">Apply Now
+                                    →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- December 2025 - Academic -->
+                    <div class="timeline-item" data-category="academic">
+                        <div class="timeline-date">
+                            <span class="date-badge">December 2025</span>
+                            <span class="category-tag academic">Academic</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>📚 New AI & GenAI Courses Announced</h2>
+                            <p>In response to industry demand, IITM BS program is introducing cutting-edge courses in
+                                Artificial Intelligence and Generative AI for the upcoming terms.</p>
+
+                            <h3>New Course Offerings:</h3>
+                            <ul>
+                                <li><strong>Generative AI Fundamentals:</strong> Covering LLMs, Prompt Engineering, and
+                                    AI Applications</li>
+                                <li><strong>Advanced Deep Learning:</strong> Focus on Transformers, GANs, and Diffusion
+                                    Models</li>
+                                <li><strong>AI Ethics & Governance:</strong> Understanding responsible AI development
+                                </li>
+                                <li><strong>MLOps & Deployment:</strong> Production-ready ML systems</li>
+                            </ul>
+
+                            <h3>Industry Collaboration:</h3>
+                            <ul>
+                                <li>Guest lectures from Google, Microsoft, and OpenAI experts</li>
+                                <li>Real-world project opportunities with partner companies</li>
+                                <li>Access to cloud computing credits for hands-on practice</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Source:</p>
+                                <div class="source-links">
+                                    <a href="https://study.iitm.ac.in/ds/academics.html" target="_blank"
+                                        class="source-link">IITM Academics Page</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/academics.html" target="_blank"
+                                    class="read-more-btn">View Curriculum →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- November 2025 - Achievements -->
+                    <div class="timeline-item" data-category="achievements">
+                        <div class="timeline-date">
+                            <span class="date-badge">November 2025</span>
+                            <span class="category-tag achievements">Achievement</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>🏆 Students Win National Data Science Hackathon</h2>
+                            <p>A team of IITM BS students secured first place at the National Data Science Hackathon
+                                2025, competing against teams from premier institutions across India.</p>
+
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number">1st</div>
+                                    <div class="stat-label">Place</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">₹5L</div>
+                                    <div class="stat-label">Prize Money</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">Teams</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">3</div>
+                                    <div class="stat-label">Days</div>
+                                </div>
+                            </div>
+
+                            <h3>Project Highlights:</h3>
+                            <ul>
+                                <li><strong>Problem:</strong> Predictive healthcare analytics for rural India</li>
+                                <li><strong>Solution:</strong> ML model achieving 94% accuracy in disease prediction
+                                </li>
+                                <li><strong>Impact:</strong> Potential to help 10,000+ patients in pilot phase</li>
+                                <li><strong>Technology:</strong> Python, TensorFlow, React, Cloud deployment</li>
+                            </ul>
+
+                            <h3>Team Recognition:</h3>
+                            <ul>
+                                <li>Featured in national tech publications</li>
+                                <li>Invited to present at industry conferences</li>
+                                <li>Received mentorship offers from leading tech companies</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Source:</p>
+                                <div class="source-links">
+                                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank"
+                                        class="source-link">IITM Discourse Community</a>
+                                </div>
+                                <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank"
+                                    class="read-more-btn">Read More →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- October 2025 - Placements -->
+                    <div class="timeline-item" data-category="placements">
+                        <div class="timeline-date">
+                            <span class="date-badge">October 2025</span>
+                            <span class="category-tag placements">Placements</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>💼 Record-Breaking Internship Season</h2>
+                            <p>The September 2025 term witnessed unprecedented internship placements with students
+                                securing positions at top tech companies and startups.</p>
+
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number">500+</div>
+                                    <div class="stat-label">Internships</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">₹50K</div>
+                                    <div class="stat-label">Avg Stipend</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">₹1.2L</div>
+                                    <div class="stat-label">Highest Stipend</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">300+</div>
+                                    <div class="stat-label">Companies</div>
+                                </div>
+                            </div>
+
+                            <h3>Top Recruiters:</h3>
+                            <ul>
+                                <li><strong>Tech Giants:</strong> Google, Microsoft, Amazon, Meta</li>
+                                <li><strong>Startups:</strong> Razorpay, CRED, Zepto, PhonePe</li>
+                                <li><strong>Consulting:</strong> McKinsey, BCG, Deloitte</li>
+                                <li><strong>Finance:</strong> Goldman Sachs, JP Morgan, HSBC</li>
+                            </ul>
+
+                            <h3>Student Success Stories:</h3>
+                            <ul>
+                                <li>15 students secured PPOs (Pre-Placement Offers)</li>
+                                <li>Multiple students received international opportunities</li>
+                                <li>Strong representation in AI/ML and Data Engineering roles</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Source:</p>
+                                <div class="source-links">
+                                    <a href="https://study.iitm.ac.in/ds/" target="_blank" class="source-link">IITM
+                                        Official Updates</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/" target="_blank" class="read-more-btn">Learn More
+                                    →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- December 2024 - Placements -->
+                    <div class="timeline-item" data-category="placements">
+                        <div class="timeline-date">
+                            <span class="date-badge">December 2024</span>
+                            <span class="category-tag placements">Placements</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>🎉 Outstanding Placement Results for 2024-25 Batch</h2>
+                            <p>The IITM BS Data Science program achieved remarkable placement outcomes for the 2024-25
+                                academic year, with 210 students securing full-time positions and 35 securing
+                                apprenticeships.</p>
+
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number">₹10 LPA</div>
+                                    <div class="stat-label">Average Package</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">₹25 LPA</div>
+                                    <div class="stat-label">Highest Package</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">240+</div>
+                                    <div class="stat-label">Companies</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">210</div>
+                                    <div class="stat-label">Students Placed</div>
+                                </div>
+                            </div>
+
+                            <h3>Key Highlights:</h3>
+                            <ul>
+                                <li><strong>Internship Success:</strong> Average stipend of ₹30,000/month (range:
+                                    ₹10,000 - ₹80,000)</li>
+                                <li><strong>Top Recruiters:</strong> Amazon, Aditya Birla, TCS, L&T, Syngenta, and more
+                                </li>
+                                <li><strong>Placement Rate:</strong> ~60% on-campus placement rate, higher including
+                                    off-campus opportunities</li>
+                                <li><strong>Industry Interaction Cell (IIC):</strong> Facilitated 120 full-time
+                                    positions and 413 internships</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Sources:</p>
+                                <div class="source-links">
+                                    <a href="https://letslearn1110.com/iit-madras-bs-data-science-placements/"
+                                        target="_blank" class="source-link">LetsLearn - Placement Report</a>
+                                    <a href="https://www.careers360.com/university/indian-institute-of-technology-madras/bs-in-data-science-and-applications-course-placement"
+                                        target="_blank" class="source-link">Careers360 - Placement Details</a>
+                                </div>
+                                <a href="https://letslearn1110.com/iit-madras-bs-data-science-placements/"
+                                    target="_blank" class="read-more-btn">Read Full Article →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- November 2024 - Admissions -->
+                    <div class="timeline-item" data-category="admissions">
+                        <div class="timeline-date">
+                            <span class="date-badge">November 2024</span>
+                            <span class="category-tag admissions">Admissions</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>📢 January 2026 Batch Applications Opening Soon</h2>
+                            <p>Applications for the January 2026 batch will open on <strong>January 1, 2026</strong>.
+                                The program continues to be accessible to all students who have passed Class 12, with no
+                                JEE requirement.</p>
+
+                            <h3>Eligibility Criteria:</h3>
+                            <ul>
+                                <li>Passed Class 12 (any stream, any year)</li>
+                                <li>Studied Mathematics and English in Class 10</li>
+                                <li>No age limit</li>
+                                <li>No JEE or entrance exam required</li>
+                            </ul>
+
+                            <h3>Admission Process:</h3>
+                            <ul>
+                                <li><strong>Step 1:</strong> Register and complete 4-week foundational coursework</li>
+                                <li><strong>Step 2:</strong> Appear for qualifier examination</li>
+                                <li><strong>Step 3:</strong> Admission based on qualifier performance</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Sources:</p>
+                                <div class="source-links">
+                                    <a href="https://study.iitm.ac.in/ds/" target="_blank" class="source-link">IITM
+                                        Official Website</a>
+                                    <a href="https://www.hindustantimes.com/education/iit-madras-bs-data-science-admissions-2024/"
+                                        target="_blank" class="source-link">Hindustan Times - Admissions</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/" target="_blank" class="read-more-btn">Apply Now
+                                    →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- October 2024 - Achievement -->
+                    <div class="timeline-item" data-category="achievements">
+                        <div class="timeline-date">
+                            <span class="date-badge">October 2024</span>
+                            <span class="category-tag achievements">Achievement</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>🏆 Program Reaches 27,000+ Active Students</h2>
+                            <p>The IIT Madras BS in Data Science and Applications program has crossed a significant
+                                milestone with over 27,000 active students enrolled across all levels.</p>
+
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number">27,000+</div>
+                                    <div class="stat-label">Active Students</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">850+</div>
+                                    <div class="stat-label">In Masters/PhD</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">2,500+</div>
+                                    <div class="stat-label">Jobs/Promotions</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">2,313</div>
+                                    <div class="stat-label">Pursuing Higher Ed</div>
+                                </div>
+                            </div>
+
+                            <h3>Global Recognition:</h3>
+                            <ul>
+                                <li>Students admitted to Cornell University, Georgia Tech, Aalto University</li>
+                                <li>Growing alumni network across 50+ countries</li>
+                                <li>Industry partnerships with leading tech companies</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Sources:</p>
+                                <div class="source-links">
+                                    <a href="https://www.thehindu.com/news/national/tamil-nadu/iit-madras-bs-degree-programme/"
+                                        target="_blank" class="source-link">The Hindu - Program Achievements</a>
+                                    <a href="https://www.indianexpress.com/article/education/iit-madras-bs-data-science/"
+                                        target="_blank" class="source-link">Indian Express - Student Success</a>
+                                </div>
+                                <a href="https://www.thehindu.com/news/national/tamil-nadu/iit-madras-bs-degree-programme/"
+                                    target="_blank" class="read-more-btn">Read Full Article →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- September 2024 - Academic -->
+                    <div class="timeline-item" data-category="academic">
+                        <div class="timeline-date">
+                            <span class="date-badge">September 2024</span>
+                            <span class="category-tag academic">Academic</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>📚 September 2024 Term Commenced</h2>
+                            <p>The September 2024 term has officially begun with enhanced course offerings and updated
+                                curriculum across all program levels.</p>
+
+                            <h3>New Additions:</h3>
+                            <ul>
+                                <li>Updated Machine Learning curriculum with latest industry practices</li>
+                                <li>Enhanced project guidelines for MAD I and MAD II</li>
+                                <li>New elective courses in AI and Deep Learning</li>
+                                <li>Improved assessment patterns for better learning outcomes</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Source:</p>
+                                <div class="source-links">
+                                    <a href="https://study.iitm.ac.in/ds/academics.html" target="_blank"
+                                        class="source-link">IITM Academics Page</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/academics.html" target="_blank"
+                                    class="read-more-btn">View Course Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- August 2024 - Financial Aid -->
+                    <div class="timeline-item" data-category="admissions">
+                        <div class="timeline-date">
+                            <span class="date-badge">August 2024</span>
+                            <span class="category-tag admissions">Financial Aid</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>💰 Enhanced Fee Waiver Program</h2>
+                            <p>IIT Madras continues its commitment to diversity and inclusivity through comprehensive
+                                fee waiver programs supported by CSR initiatives and government scholarships.</p>
+
+                            <h3>Fee Waiver Eligibility:</h3>
+                            <ul>
+                                <li><strong>Female Students:</strong> 100% fee waiver for family income < ₹5
+                                        lakhs/year</li>
+                                <li><strong>Male Students:</strong> 100% fee waiver for family income < ₹1
+                                        lakh/year</li>
+                                <li><strong>Partial Waivers:</strong> Available for students from economically weaker
+                                    sections</li>
+                                <li><strong>Merit Scholarships:</strong> For top performers in each term</li>
+                            </ul>
+
+                            <h3>How to Apply:</h3>
+                            <ul>
+                                <li>Submit income certificate during admission</li>
+                                <li>Apply through student portal after enrollment</li>
+                                <li>Renewal required each academic year</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Sources:</p>
+                                <div class="source-links">
+                                    <a href="https://www.indianexpress.com/article/education/iit-madras-bs-data-science/"
+                                        target="_blank" class="source-link">Indian Express - Fee Waiver Info</a>
+                                    <a href="https://study.iitm.ac.in/ds/faq.html" target="_blank"
+                                        class="source-link">IITM FAQ - Financial Aid</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/faq.html" target="_blank"
+                                    class="read-more-btn">Learn More →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- July 2024 - Graduation -->
+                    <div class="timeline-item" data-category="achievements">
+                        <div class="timeline-date">
+                            <span class="date-badge">July 2024</span>
+                            <span class="category-tag achievements">Graduation</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>🎓 2024 Batch Graduation Highlights</h2>
+                            <p>The 2024 graduating batch consisted of 131 students, with 99 completing the full BS
+                                program and 32 completing BSc.</p>
+
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number">131</div>
+                                    <div class="stat-label">Graduates</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">91</div>
+                                    <div class="stat-label">Employed</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">18</div>
+                                    <div class="stat-label">Postgrad Programs</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">99</div>
+                                    <div class="stat-label">BS Degree</div>
+                                </div>
+                            </div>
+
+                            <h3>Career Outcomes:</h3>
+                            <ul>
+                                <li>91 students employed in leading companies</li>
+                                <li>18 pursuing Master's/PhD programs</li>
+                                <li>10 actively seeking full-time opportunities</li>
+                                <li>Others in internships or competitive exam preparation</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Source:</p>
+                                <div class="source-links">
+                                    <a href="https://www.careers360.com/university/indian-institute-of-technology-madras/bs-in-data-science-and-applications-course-placement"
+                                        target="_blank" class="source-link">Careers360 - Graduation Report</a>
+                                </div>
+                                <a href="https://www.careers360.com/university/indian-institute-of-technology-madras/bs-in-data-science-and-applications-course-placement"
+                                    target="_blank" class="read-more-btn">Read Full Report →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- May 2024 - New Admission Policy -->
+                    <div class="timeline-item" data-category="admissions">
+                        <div class="timeline-date">
+                            <span class="date-badge">May 2024</span>
+                            <span class="category-tag admissions">Policy Update</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>📋 New Admission Pathways Introduced</h2>
+                            <p>IIT Madras introduced new admission processes for undergraduate programs in 2025,
+                                expanding opportunities for talented students.</p>
+
+                            <h3>New Admission Routes:</h3>
+                            <ul>
+                                <li><strong>Olympiad Route:</strong> Students excelling in national/international
+                                    Olympiads can secure seats without JEE</li>
+                                <li><strong>Sports Quota:</strong> National-level sports achievers (must qualify JEE
+                                    Advanced)</li>
+                                <li><strong>Fine Arts/Cultural Excellence:</strong> National-level achievements in arts
+                                    (must qualify JEE Advanced)</li>
+                                <li><strong>Traditional Route:</strong> BS Data Science program continues with no JEE
+                                    requirement</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Source:</p>
+                                <div class="source-links">
+                                    <a href="https://en.wikipedia.org/wiki/IIT_Madras_BS_Degree_Programme"
+                                        target="_blank" class="source-link">Wikipedia - Admission Pathways</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/" target="_blank" class="read-more-btn">Explore
+                                    Admissions →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- April 2024 - Program Structure -->
+                    <div class="timeline-item" data-category="academic">
+                        <div class="timeline-date">
+                            <span class="date-badge">April 2024</span>
+                            <span class="category-tag academic">Program Info</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h2>📖 Program Structure Overview</h2>
+                            <p>The IIT Madras BS in Data Science and Applications is a comprehensive 4-year online
+                                degree program with flexible completion options.</p>
+
+                            <h3>Program Levels:</h3>
+                            <ul>
+                                <li><strong>Foundation Level:</strong> 32 credits (8 courses) - Mathematics, Statistics,
+                                    Programming, English</li>
+                                <li><strong>Diploma Level:</strong> 54 credits total
+                                    <ul>
+                                        <li>Diploma in Programming: 27 credits (6 courses + 2 projects)</li>
+                                        <li>Diploma in Data Science: 27 credits (6 courses + 2 projects)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Degree Level:</strong> 56 credits - Core courses + Electives</li>
+                            </ul>
+
+                            <h3>Key Features:</h3>
+                            <ul>
+                                <li>Flexible completion: 3-6 years</li>
+                                <li>Exit options at Diploma level</li>
+                                <li>36 theory courses + 4 project courses</li>
+                                <li>Tri-semester system (January, May, September)</li>
+                                <li>Suggested pace: 10 hours/course/week</li>
+                            </ul>
+
+                            <div class="source-section">
+                                <p class="source-label">📰 Sources:</p>
+                                <div class="source-links">
+                                    <a href="https://study.iitm.ac.in/ds/academics.html" target="_blank"
+                                        class="source-link">IITM Academics - Program Structure</a>
+                                    <a href="https://www.collegedunia.com/college/iit-madras-bs-degree-programme"
+                                        target="_blank" class="source-link">CollegeDunia - Program Details</a>
+                                </div>
+                                <a href="https://study.iitm.ac.in/ds/academics.html" target="_blank"
+                                    class="read-more-btn">View Full Curriculum →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-section">
+                    <p class="load-more-text">More updates coming soon! Check the <a href="https://study.iitm.ac.in/ds/"
+                            target="_blank">official website</a> for the latest announcements.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>IITM <span class="gradient-text">HELPER</span></h3>
+                    <p>Made for IITM BS, made by IITM students 🎓</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="https://study.iitm.ac.in/ds/" target="_blank">Official Website</a>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank">Discourse Community</a>
+                    <a href="https://ds.study.iitm.ac.in/auth/login" target="_blank">Student Portal</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <a href="https://discourse.onlinedegree.iitm.ac.in/" target="_blank" class="social-link">
+                        💬 Join Discourse
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-link">
+                        💻 GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IITM Helper. Built with ❤️ for IITM BS students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../js/theme-switcher.js"></script>
+    <script src="../js/news-page.js"></script>
+</body>
+
+</html>

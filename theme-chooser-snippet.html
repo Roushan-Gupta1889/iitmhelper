@@ -1,0 +1,50 @@
+<!-- ADD THIS TO THE <head> SECTION AFTER styles.css -->
+<link rel="stylesheet" href="css/themes.css">
+
+<!-- ADD THIS BETWEEN </nav> AND <button class="mobile-menu-btn"> IN THE HEADER -->
+<!-- Theme Chooser -->
+<div class="theme-chooser">
+    <button class="theme-toggle-btn" id="themeToggleBtn">
+        <span class="theme-icon">🎨</span>
+        <span>Theme</span>
+    </button>
+    <div class="theme-dropdown" id="themeDropdown">
+        <div class="theme-dropdown-header">Choose Theme</div>
+        <div class="theme-current">Current: <strong id="currentTheme">Signature</strong></div>
+        <div class="theme-grid">
+            <div class="theme-option theme-signature active" data-theme="signature" title="Signature">
+                <span class="theme-option-label">Signature</span>
+            </div>
+            <div class="theme-option theme-aurora" data-theme="aurora" title="Aurora">
+                <span class="theme-option-label">Aurora</span>
+            </div>
+            <div class="theme-option theme-sunset" data-theme="sunset" title="Sunset">
+                <span class="theme-option-label">Sunset</span>
+            </div>
+            <div class="theme-option theme-deep" data-theme="deep" title="Deep">
+                <span class="theme-option-label">Deep</span>
+            </div>
+            <div class="theme-option theme-mystic" data-theme="mystic" title="Mystic">
+                <span class="theme-option-label">Mystic</span>
+            </div>
+            <div class="theme-option theme-royal" data-theme="royal" title="Royal">
+                <span class="theme-option-label">Royal</span>
+            </div>
+            <div class="theme-option theme-crimson" data-theme="crimson" title="Crimson">
+                <span class="theme-option-label">Crimson</span>
+            </div>
+            <div class="theme-option theme-electric" data-theme="electric" title="Electric">
+                <span class="theme-option-label">Electric</span>
+            </div>
+            <div class="theme-option theme-emerald" data-theme="emerald" title="Emerald">
+                <span class="theme-option-label">Emerald</span>
+            </div>
+            <div class="theme-option theme-midnight" data-theme="midnight" title="Midnight">
+                <span class="theme-option-label">Midnight</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADD THIS BEFORE </body> TAG -->
+<script src="js/theme-switcher.js"></script>
