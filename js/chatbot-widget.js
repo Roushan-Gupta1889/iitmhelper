@@ -37,7 +37,7 @@ async function sendWidgetMessage() {
 
     try {
         // Call backend API
-        const response = await fetch('http://localhost:3000/api/chat', {
+        const response = await fetch('https://iitmhelper-669a.vercel.app/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

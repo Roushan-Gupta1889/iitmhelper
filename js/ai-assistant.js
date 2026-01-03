@@ -1,5 +1,5 @@
 // AI Assistant with Backend API Integration
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://iitmhelper-669a.vercel.app';
 
 // DOM Elements
 const chatMessages = document.getElementById('chatMessages');
