@@ -1,0 +1,94 @@
+# IITM Helper - Academic Companion for IIT Madras BS Students
+
+> Complete academic companion for IITM BS Data Science students. Access GPA calculator, study tools, course resources, AI assistant, and community updates.
+
+## About
+
+IITM Helper is a comprehensive web application designed specifically for students enrolled in the IIT Madras BS Data Science and Applications program. The platform provides essential academic tools and resources to help students succeed in their studies.
+
+## Main Features
+
+### GPA Calculator
+- Calculate CGPA and SGPA for IITM BS program
+- Support for Foundation, Diploma, and Degree levels
+- Weighted grade calculation based on IITM grading system
+- URL: https://iitmhelper.online/pages/gpa-calculator.html
+
+### AI Study Assistant
+- AI-powered study help using Groq API
+- Get explanations for complex topics
+- Practice problem solving
+- URL: https://iitmhelper.online/pages/ai-assistant.html
+
+### Study Tools
+- Pomodoro timer for focused study sessions
+- Note-taking functionality
+- Study resource links
+- URL: https://iitmhelper.online/pages/study-plus.html
+
+### Course Selection Guide
+- Comprehensive course selection information
+- Foundation, Diploma, and Degree level courses
+- Course prerequisites and recommendations
+- URL: https://iitmhelper.online/pages/course-selection.html
+
+### Diploma Pathways
+- Information about diploma specializations
+- Data Science and Programming pathway
+- Electronics Systems pathway
+- URL: https://iitmhelper.online/pages/diploma-pathways.html
+
+### News & Updates
+- Latest IITM BS program updates
+- Important announcements
+- Community news
+- URL: https://iitmhelper.online/pages/news.html
+
+## Target Audience
+
+- IITM BS Data Science students (Foundation, Diploma, Degree)
+- Prospective students researching the program
+- Current students looking for academic tools
+- Students preparing for quizzes and exams
+
+## Technology Stack
+
+- Frontend: HTML5, CSS3, JavaScript (Vanilla)
+- Styling: Bootstrap 5, Custom CSS
+- Analytics: Google Analytics 4
+- AI Integration: Groq API for AI assistant
+
+## Key Topics Covered
+
+- IITM BS Data Science program
+- GPA calculation and grading system
+- Course selection and planning
+- Study techniques and tools
+- AI-assisted learning
+- Exam preparation
+- Academic resources
+- Student community updates
+
+## Contact
+
+- Website: https://iitmhelper.online
+- Email: iitmhelper@gmail.com
+- Instagram: @iitmhelper
+- WhatsApp Community: Available on website
+
+## Legal
+
+- Privacy Policy: https://iitmhelper.online/pages/privacy-policy.html
+- Terms & Conditions: https://iitmhelper.online/pages/terms-conditions.html
+
+## Disclaimer
+
+IITM Helper is an independent, student-built project and is not affiliated with or endorsed by IIT Madras. All external resources belong to their respective owners. IITM Helper does not host or claim ownership of third-party content. Links are shared strictly for educational purposes.
+
+## Sitemap
+
+For a complete list of pages and resources, see: https://iitmhelper.online/sitemap.xml
+
+## Last Updated
+
+2026-01-04
