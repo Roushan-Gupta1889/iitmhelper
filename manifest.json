@@ -1,0 +1,85 @@
+{
+    "name": "IITM Helper",
+    "short_name": "IITM Helper",
+    "description": "Complete academic companion for IIT Madras BS Data Science students. Access GPA calculator, study tools, course resources, AI assistant, and community updates.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#8b5cf6",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/assets/favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/assets/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "education",
+        "productivity"
+    ],
+    "screenshots": [
+        {
+            "src": "/assets/screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/assets/screenshot-mobile.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "GPA Calculator",
+            "short_name": "GPA Calc",
+            "description": "Calculate your IITM BS GPA",
+            "url": "/pages/gpa-calculator.html",
+            "icons": [
+                {
+                    "src": "/assets/favicon.ico",
+                    "sizes": "48x48"
+                }
+            ]
+        },
+        {
+            "name": "AI Assistant",
+            "short_name": "AI Help",
+            "description": "Get AI-powered study assistance",
+            "url": "/pages/ai-assistant.html",
+            "icons": [
+                {
+                    "src": "/assets/favicon.ico",
+                    "sizes": "48x48"
+                }
+            ]
+        },
+        {
+            "name": "Study Tools",
+            "short_name": "Study",
+            "description": "Access study tools and resources",
+            "url": "/pages/study-plus.html",
+            "icons": [
+                {
+                    "src": "/assets/favicon.ico",
+                    "sizes": "48x48"
+                }
+            ]
+        }
+    ]
+}
