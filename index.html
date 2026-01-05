@@ -196,10 +196,12 @@
                 <div class="hero-content">
                     <h2 class="hero-title">
                         An Academic Tool Made For<br>
-                        <span class="gradient-text">IITM BS Students</span>
+                        <span class="rotating-text-wrapper">
+                            <span class="rotating-text" id="rotatingText"></span>
+                        </span> <span class="gradient-text">IITM BS Students</span>
                     </h2>
                     <p class="hero-subtitle">
-                        Your complete companion for the IIT Madras BS Data Science program.<br>
+                        Complete companion for IIT Madras BS Data Science students.<br>
                         Resources, calculators, study tools, and community - all in one place.
                     </p>
                     <div class="hero-buttons">
@@ -760,6 +762,66 @@
                 text-align: center;
             }
         }
+
+        /* Rotating Text Effect Styles - Fade Animation */
+        .rotating-text-wrapper {
+            display: inline-block;
+            position: relative;
+            min-width: 250px;
+            text-align: left;
+            height: 1.2em;
+            vertical-align: bottom;
+        }
+
+        .rotating-text {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        .rotating-text.fade-in {
+            animation: fadeIn 0.6s ease-in forwards;
+        }
+
+        .rotating-text.fade-out {
+            animation: fadeOut 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .rotating-text-wrapper {
+                min-width: 180px;
+            }
+        }
     </style>
 
     <!-- Bootstrap 5 JS Bundle -->
@@ -774,6 +836,37 @@
     <script src="js/theme-switcher.js"></script>
     <script src="js/chatbot-widget.js"></script>
     <script src="js/term-banner.js"></script>
+
+    <!-- Rotating Text Effect Script -->
+    <script>
+        // Fade rotation effect for words
+        const words = ['Driven', 'Focused', 'Aspiring', 'Brilliant', 'Future'];
+        let currentWordIndex = 0;
+        const rotatingTextElement = document.getElementById('rotatingText');
+
+        function rotateWord() {
+            // Fade out current word
+            rotatingTextElement.classList.remove('fade-in');
+            rotatingTextElement.classList.add('fade-out');
+
+            // After fade out completes, change word and fade in
+            setTimeout(() => {
+                currentWordIndex = (currentWordIndex + 1) % words.length;
+                rotatingTextElement.textContent = words[currentWordIndex];
+                rotatingTextElement.classList.remove('fade-out');
+                rotatingTextElement.classList.add('fade-in');
+            }, 600); // Match fade-out animation duration
+        }
+
+        // Initialize with first word
+        document.addEventListener('DOMContentLoaded', () => {
+            rotatingTextElement.textContent = words[0];
+            rotatingTextElement.classList.add('fade-in');
+
+            // Change word every 3 seconds
+            setInterval(rotateWord, 3000);
+        });
+    </script>
 </body>
 
 </html>
