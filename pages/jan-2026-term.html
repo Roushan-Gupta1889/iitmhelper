@@ -365,6 +365,49 @@
         </div>
     </header>
 
+    <!-- IMPORTANT GRADING POLICY ALERT BANNER -->
+    <div
+        style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); margin: 0.4rem 0; padding: 0.1rem 0; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); position: relative; overflow: hidden;">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 1rem; animation: pulse 2s ease-in-out infinite;">
+                <div
+                    style="background: white; color: #dc2626; padding: 0.35rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.75rem; white-space: nowrap;">
+                    ⚠️ IMPORTANT
+                </div>
+                <marquee behavior="scroll" direction="left" scrollamount="5"
+                    style="color: white; font-weight: 600; font-size: 0.9rem;">
+                    🔔 MAJOR GRADING POLICY CHANGE for Jan 2026 Term! GAA weightage has been reduced for Foundation (0
+                    marks) and Diploma (5 marks) levels. Click here for full details →
+                </marquee>
+                <a href="news.html#grading-update"
+                    style="background: white; color: #dc2626; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; text-decoration: none; white-space: nowrap; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"
+                    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.3)';"
+                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.2)';">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+        }
+
+        @media (max-width: 768px) {
+            marquee {
+                font-size: 0.8rem !important;
+            }
+        }
+    </style>
 
     <!-- Main Content -->
     <div class="container pb-4">
