@@ -383,6 +383,16 @@
         </section>
     </main>
 
+    <!-- Bottom Announcement Banner -->
+    <div class="bottom-banner">
+        <div class="banner-content">
+            <marquee behavior="scroll" direction="left" scrollamount="4">
+                🚀 Stay tuned for exciting updates! Dedicated User Dashboard coming soon • Personalized Study Analytics
+                • Course Progress Tracking • Achievement Badges • And many more features! 🎯
+            </marquee>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer-modern">
         <div class="container">
@@ -820,6 +830,50 @@
         @media (max-width: 768px) {
             .rotating-text-wrapper {
                 min-width: 180px;
+            }
+        }
+
+        /* Bottom Announcement Banner */
+        .bottom-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            padding: 0rem 0;
+            margin: 0.2rem;
+            z-index: 999;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .banner-content {
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .banner-content marquee {
+            color: white;
+        }
+
+        /* Add padding to body to prevent content from being hidden behind banner */
+        body {
+            padding-bottom: 45px;
+        }
+
+        @media (max-width: 768px) {
+            .bottom-banner {
+                padding: 0.rem 0;
+            }
+
+            .banner-content {
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-bottom: 40px;
             }
         }
     </style>
