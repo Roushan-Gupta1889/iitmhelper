@@ -98,7 +98,55 @@ h6 {
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
 }
+/* ==================== MODERN HOLOGRAPHIC TEXT ==================== */
 
+.nav-link.study-plus-modern {
+    position: relative;
+    font-weight: 800; /* Thicker text shows the effect better */
+    text-decoration: none;
+    margin-left: 1rem;
+    
+    /* The Magic Gradient: varying shades of blue, purple, and white */
+    background: linear-gradient(
+        120deg,
+        #ffffff 0%,
+        #8b5cf6 20%,
+        #00c6ff 40%,
+        #ffffff 50%,
+        #ff006e 60%,
+        #8b5cf6 80%,
+        #ffffff 100%
+    );
+    
+    background-size: 200% auto;
+    
+    /* Clip the background to the text characters */
+    color: #000; /* Fallback */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* The Animation */
+    animation: shine-move 3s linear infinite;
+}
+
+/* Remove the underline from the default nav-link style */
+.nav-link.study-plus-modern::after {
+    display: none;
+}
+
+/* Hover: Make it glow slightly */
+.nav-link.study-plus-modern:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Animation Keyframes */
+@keyframes shine-move {
+    to {
+        background-position: 200% center;
+    }
+}
 .nav-wrapper {
     display: flex;
     align-items: center;
@@ -624,7 +672,7 @@ h6 {
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 140px;
         left: -100%;
         width: 100%;
         height: calc(100vh - 70px);
