@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/themes.css">
     <link rel="stylesheet" href="css/chatbot-widget.css">
+    <link rel="stylesheet" href="css/studyplus-widget.css">
     <link rel="stylesheet" href="css/term-banner.css">
     <link rel="stylesheet" href="css/footer-modern.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,7 +114,7 @@
                     <a href="#home" class="nav-link">Home</a>
                     <a href="#resources" class="nav-link">Resources</a>
                     <a href="pages/gpa-calculator.html" class="nav-link">GPA Tools</a>
-<a href="https://study-plus-yt-next-js.vercel.app/" 
+<a href="/pages/studyplus-yt.html" 
    class="nav-link study-plus-modern" 
    data-text="Study Plus">
    Study Plus
@@ -386,15 +387,7 @@
         </section>
     </main>
 
-    <!-- Bottom Announcement Banner -->
-    <div class="bottom-banner">
-        <div class="banner-content">
-            <marquee behavior="scroll" direction="left" scrollamount="4">
-                🚀 Stay tuned for exciting updates! Dedicated User Dashboard coming soon • Personalized Study Analytics
-                • Course Progress Tracking • Achievement Badges • And many more features! 🎯
-            </marquee>
-        </div>
-    </div>
+
 
     <!-- Footer -->
     <footer class="footer-modern">
@@ -556,7 +549,68 @@
         </div>
     </div>
 
+    <!-- StudyPlus YT Floating Widget -->
+    <div class="studyplus-widget" id="studyplusWidget">
+        <button class="studyplus-widget-btn" onclick="toggleStudyPlus()" aria-label="Open StudyPlus YT">
+            <span class="studyplus-widget-icon">S<span class="studyplus-widget-plus">+</span></span>
+            <span class="studyplus-tooltip">📖 StudyPlus YT</span>
+        </button>
+    </div>
 
+    <!-- StudyPlus YT Popup Panel -->
+    <div class="studyplus-popup-overlay" id="studyplusOverlay" onclick="closeStudyPlus()"></div>
+    <div class="studyplus-popup" id="studyplusPopup">
+        <div class="studyplus-popup-header">
+            <div class="studyplus-popup-header-info">
+                <h3>📖 StudyPlus YT</h3>
+                <p>Distraction-Free YouTube Learning</p>
+            </div>
+            <button class="studyplus-popup-close" onclick="closeStudyPlus()">✕</button>
+        </div>
+        <div class="studyplus-popup-body">
+            <p class="studyplus-tagline">
+                <strong>YouTube is for entertainment</strong> — StudyPlus YT transforms it into a focused study environment. 
+                No ads, no distractions, just pure learning.
+            </p>
+            <div class="studyplus-features-grid">
+                <div class="studyplus-feature-chip">
+                    <span class="chip-icon">🎬</span>
+                    <span class="chip-text">Distraction-Free Player</span>
+                </div>
+                <div class="studyplus-feature-chip">
+                    <span class="chip-icon">📝</span>
+                    <span class="chip-text">Timestamp Notes</span>
+                </div>
+                <div class="studyplus-feature-chip">
+                    <span class="chip-icon">📊</span>
+                    <span class="chip-text">Analytics Dashboard</span>
+                </div>
+                <div class="studyplus-feature-chip">
+                    <span class="chip-icon">🎓</span>
+                    <span class="chip-text">IITM Curriculum</span>
+                </div>
+                <div class="studyplus-feature-chip">
+                    <span class="chip-icon">🤖</span>
+                    <span class="chip-text">AI Study Assistant</span>
+                </div>
+                <div class="studyplus-feature-chip">
+                    <span class="chip-icon">📱</span>
+                    <span class="chip-text">Install as App</span>
+                </div>
+            </div>
+            <div class="studyplus-iitm-badge">
+                <span class="badge-icon">🎓</span>
+                <span class="badge-text"><strong>Built for IITM BS Students</strong> — Pre-curated playlists mapped to the official curriculum</span>
+            </div>
+        </div>
+        <div class="studyplus-popup-footer">
+            <a href="https://study-plus-yt-next-js.vercel.app/" target="_blank" class="studyplus-cta-btn">
+                🚀 Start Studying Now
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </a>
+            <a href="pages/studyplus-yt.html" class="studyplus-learn-more">Learn more about StudyPlus YT →</a>
+        </div>
+    </div>
 
     <style>
         /* Contact Section Styles */
@@ -836,49 +890,6 @@
             }
         }
 
-        /* Bottom Announcement Banner */
-        .bottom-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-            padding: 0rem 0;
-            margin: 0.2rem;
-            z-index: 999;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
-            border-top: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .banner-content {
-            color: white;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 0.3px;
-        }
-
-        .banner-content marquee {
-            color: white;
-        }
-
-        /* Add padding to body to prevent content from being hidden behind banner */
-        body {
-            padding-bottom: 45px;
-        }
-
-        @media (max-width: 768px) {
-            .bottom-banner {
-                padding: 0.rem 0;
-            }
-
-            .banner-content {
-                font-size: 0.8rem;
-            }
-
-            body {
-                padding-bottom: 40px;
-            }
-        }
     </style>
 
     <!-- Bootstrap 5 JS Bundle -->
@@ -892,6 +903,7 @@
     <script src="data/courses.js"></script>
     <script src="js/theme-switcher.js"></script>
     <script src="js/chatbot-widget.js"></script>
+    <script src="js/studyplus-widget.js"></script>
     <script src="js/term-banner.js"></script>
 
     <!-- Rotating Text Effect Script -->

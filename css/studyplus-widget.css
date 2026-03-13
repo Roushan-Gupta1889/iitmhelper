@@ -1,0 +1,431 @@
+/* ==================== StudyPlus YT Floating Widget ==================== */
+
+/* Floating Button (Bottom-Left) */
+.studyplus-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0) translateY(20px);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+.studyplus-widget.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: all;
+}
+
+.studyplus-widget-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #6366F1 0%, #4F46E5 40%, #10B981 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 4px 16px rgba(79, 70, 229, 0.35),
+        0 1px 3px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    animation: studyplus-pulse 3s ease-in-out infinite;
+    position: relative;
+}
+
+.studyplus-widget-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow:
+        0 8px 28px rgba(79, 70, 229, 0.5),
+        0 2px 6px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Text logo "S+" */
+.studyplus-widget-icon {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.studyplus-widget-plus {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    vertical-align: super;
+    margin-left: -1px;
+}
+
+/* Notification dot */
+.studyplus-widget-btn::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid #0a0a0a;
+    animation: notif-blink 1.5s infinite;
+}
+
+.studyplus-widget-btn.seen::after {
+    display: none;
+}
+
+/* Tooltip */
+.studyplus-tooltip {
+    position: absolute;
+    bottom: 66px;
+    left: 0;
+    background: rgba(15, 15, 25, 0.95);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.studyplus-widget-btn:hover .studyplus-tooltip {
+    opacity: 1;
+}
+
+@keyframes studyplus-pulse {
+    0%, 100% {
+        box-shadow:
+            0 4px 16px rgba(79, 70, 229, 0.35),
+            0 1px 3px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    50% {
+        box-shadow:
+            0 6px 24px rgba(79, 70, 229, 0.45),
+            0 1px 3px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+}
+
+@keyframes notif-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ==================== Popup Panel (Centered on Desktop) ==================== */
+
+/* Backdrop overlay */
+.studyplus-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.studyplus-popup-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.studyplus-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    max-height: min(460px, calc(100vh - 80px));
+    height: auto;
+    background: rgba(20, 20, 30, 0.98);
+    backdrop-filter: blur(24px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.studyplus-popup.open {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Header */
+.studyplus-popup-header {
+    padding: 20px 20px 16px;
+    background: linear-gradient(135deg, #4F46E5, #10B981);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.studyplus-popup-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.studyplus-popup-header-info {
+    position: relative;
+    z-index: 1;
+}
+
+.studyplus-popup-header-info h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.studyplus-popup-header-info p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.studyplus-popup-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.studyplus-popup-close:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: rotate(90deg);
+}
+
+/* Body */
+.studyplus-popup-body {
+    padding: 16px 20px;
+    overflow-y: auto;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79, 70, 229, 0.3) transparent;
+}
+
+.studyplus-popup-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.studyplus-popup-body::-webkit-scrollbar-thumb {
+    background: rgba(79, 70, 229, 0.3);
+    border-radius: 4px;
+}
+
+/* Tagline */
+.studyplus-tagline {
+    font-size: 14px;
+    color: #a0aec0;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.studyplus-tagline strong {
+    color: #e2e8f0;
+}
+
+/* Features Mini Grid */
+.studyplus-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.studyplus-feature-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.studyplus-feature-chip:hover {
+    background: rgba(79, 70, 229, 0.1);
+    border-color: rgba(79, 70, 229, 0.3);
+    transform: translateY(-1px);
+}
+
+.studyplus-feature-chip .chip-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.studyplus-feature-chip .chip-text {
+    font-size: 12px;
+    color: #cbd5e0;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* IITM Badge */
+.studyplus-iitm-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(16, 185, 129, 0.1));
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.studyplus-iitm-badge .badge-icon {
+    font-size: 24px;
+}
+
+.studyplus-iitm-badge .badge-text {
+    font-size: 13px;
+    color: #a0aec0;
+    line-height: 1.4;
+}
+
+.studyplus-iitm-badge .badge-text strong {
+    color: #a78bfa;
+}
+
+/* Footer CTA */
+.studyplus-popup-footer {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.studyplus-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4F46E5, #10B981);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+}
+
+.studyplus-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(79, 70, 229, 0.5);
+    color: white;
+}
+
+.studyplus-cta-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+    transition: transform 0.2s ease;
+}
+
+.studyplus-cta-btn:hover svg {
+    transform: translateX(3px);
+}
+
+.studyplus-learn-more {
+    display: block;
+    text-align: center;
+    color: #718096;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.studyplus-learn-more:hover {
+    color: #a78bfa;
+}
+
+/* ==================== Mobile Responsive ==================== */
+@media (max-width: 768px) {
+    .studyplus-widget {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .studyplus-widget-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+    }
+
+    .studyplus-widget-icon {
+        font-size: 19px;
+    }
+
+    .studyplus-widget-plus {
+        font-size: 13px;
+    }
+
+    .studyplus-popup {
+        top: auto;
+        left: 20px;
+        bottom: 90px;
+        width: calc(100vw - 40px);
+        max-height: calc(88vh - 120px);
+        transform: translateY(20px) scale(0.95);
+    }
+
+    .studyplus-popup.open {
+        transform: translateY(0) scale(1);
+    }
+
+    .studyplus-popup-overlay {
+        backdrop-filter: none;
+    }
+
+    .studyplus-features-grid {
+        grid-template-columns: 1fr;
+    }
+}

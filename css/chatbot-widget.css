@@ -1,8 +1,7 @@
 /* Floating Chatbot Widget Button */
 .chatbot-widget {
     position: fixed;
-    bottom: 40px;
-    /* Increased to clear bottom banner */
+    bottom: 20px;
     right: 30px;
     z-index: 1000;
 }
@@ -271,8 +270,7 @@
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .chatbot-widget {
-        bottom: 40px;
-        /* Increased for mobile to clear banner */
+        bottom: 20px;
         right: 20px;
     }
 
@@ -288,9 +286,9 @@
 
     .chatbot-window {
         width: calc(100vw - 40px);
-        height: calc(80vh - 140px);
+        height: calc(85vh - 120px);
+        max-height: 550px;
+        bottom: 80px;
         right: 20px;
-        bottom: 90px;
-        /* Increased for mobile to clear banner */
     }
 }
