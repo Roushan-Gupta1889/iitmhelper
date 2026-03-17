@@ -49,346 +49,510 @@
         rel="stylesheet">
 
     <style>
-        * {
-            font-family: 'Inter', sans-serif;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(236, 72, 153, 0.5); }
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(200%) skewX(-15deg); }
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
 
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: #080c14;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
             min-height: 100vh;
-            color: #e5e7eb;
+            color: #e2e8f0;
         }
 
-        /* Header Styles */
+        /* ── Header ── */
         .top-header {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem 0;
+            background: rgba(8, 12, 20, 0.92);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            padding: 0.875rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 32px rgba(0,0,0,0.5);
         }
 
         .back-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(139, 92, 246, 0.12);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.5rem 1rem;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #c4b5fd;
+            padding: 0.5rem 1.25rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
         }
-
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            transform: translateX(-3px);
+            background: rgba(139, 92, 246, 0.25);
+            border-color: rgba(139, 92, 246, 0.6);
+            color: #e9d5ff;
+            transform: translateX(-4px);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
 
-        /* Hero Section */
-        .hero-section {
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+        .header-title {
+            background: linear-gradient(135deg, #c084fc, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* ── Hero ── */
+        .hero-section {
+            padding: 4rem 0 2.5rem;
+            text-align: center;
+            animation: floatUp 0.8s ease both;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            color: #c4b5fd;
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #f9a8d4 0%, #c084fc 40%, #818cf8 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.15;
             margin-bottom: 1rem;
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
-            color: #9ca3af;
-            max-width: 700px;
+            font-size: 1.05rem;
+            color: #94a3b8;
+            max-width: 640px;
             margin: 0 auto 2rem;
+            line-height: 1.7;
         }
 
-        /* Stats Cards */
+        /* ── Stats Grid ── */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
             padding: 1.5rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: countUp 0.6s ease both;
         }
-
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(236,72,153,0.04));
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
         .stat-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139,92,246,0.15);
         }
+        .stat-card:hover::before { opacity: 1; }
 
+        .stat-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
         .stat-number {
             font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            font-weight: 900;
+            background: linear-gradient(135deg, #f9a8d4, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1;
         }
-
         .stat-label {
-            color: #9ca3af;
-            font-size: 0.9rem;
+            color: #64748b;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
             margin-top: 0.5rem;
         }
 
-        /* Level Sections */
-        .level-section {
-            margin-bottom: 3rem;
-        }
-
-        .level-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid;
-            border-radius: 8px;
-        }
-
-        .level-header.foundation {
-            border-color: #3b82f6;
-        }
-
-        .level-header.diploma {
-            border-color: #eab308;
-        }
-
-        .level-header.bsc {
-            border-color: #ec4899;
-        }
-
-        .level-header.bs {
-            border-color: #10b981;
-        }
-
-        .level-icon {
-            font-size: 2rem;
-        }
-
-        .level-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .level-meta {
-            margin-left: auto;
-            text-align: right;
-        }
-
-        .level-count {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #8b5cf6;
-        }
-
-        .level-credits {
-            font-size: 0.9rem;
-            color: #9ca3af;
-        }
-
-        /* Course Grid */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .course-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
+        /* ── Pathway ── */
+        .pathway-container {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
             position: relative;
             overflow: hidden;
         }
-
-        .course-card::before {
+        .pathway-container::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
-            border-color: rgba(139, 92, 246, 0.5);
-        }
-
-        .course-card:hover::before {
-            opacity: 1;
-        }
-
-        .course-number {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 32px;
-            height: 32px;
-            background: rgba(139, 92, 246, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #8b5cf6;
-        }
-
-        .course-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
-            padding-right: 40px;
-        }
-
-        .course-type {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .course-type.core {
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
-        }
-
-        .course-type.project {
-            background: rgba(234, 179, 8, 0.2);
-            color: #fbbf24;
-        }
-
-        .course-type.elective {
-            background: rgba(16, 185, 129, 0.2);
-            color: #34d399;
-        }
-
-        /* Pathway Visualization */
-        .pathway-container {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 3rem 0;
+            top: -1px; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, #8b5cf6, #ec4899, transparent);
         }
 
         .pathway-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             text-align: center;
             margin-bottom: 2rem;
-            color: #ffffff;
+            color: #f1f5f9;
         }
 
         .pathway-flow {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
         }
 
         .pathway-step {
-            background: rgba(255, 255, 255, 0.3);
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            border-radius: 12px;
+            background: rgba(139, 92, 246, 0.08);
+            border: 1.5px solid rgba(139, 92, 246, 0.3);
+            border-radius: 14px;
             padding: 1rem 1.5rem;
             text-align: center;
-            min-width: 150px;
+            min-width: 140px;
+            transition: all 0.3s ease;
+            position: relative;
         }
+        .pathway-step:hover {
+            background: rgba(139, 92, 246, 0.18);
+            border-color: rgba(139, 92, 246, 0.6);
+            transform: scale(1.05);
+        }
+        .pathway-step-label { font-weight: 800; color: #e2e8f0; font-size: 1rem; }
+        .pathway-step-sub { font-size: 0.78rem; color: #64748b; margin-top: 0.25rem; }
 
         .pathway-arrow {
-            font-size: 2rem;
-            color: #8b5cf6;
+            font-size: 1.5rem;
+            color: #7c3aed;
+            opacity: 0.7;
         }
 
-        /* Filters */
-        .filters-container {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
+        /* ── Filters & Search ── */
+        .controls-container {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 2rem;
         }
 
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+        #courseSearch {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            outline: none;
+        }
+        #courseSearch::placeholder { color: #475569; }
+        #courseSearch:focus {
+            border-color: rgba(139,92,246,0.5);
+            background: rgba(139,92,246,0.06);
+            box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+        }
+
+        .filter-label {
+            color: #64748b;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+
         .filter-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+            padding: 0.45rem 1.1rem;
             border-radius: 50px;
             margin: 0.25rem;
-            transition: all 0.3s ease;
+            font-size: 0.82rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
         }
-
-        .filter-btn:hover,
+        .filter-btn:hover {
+            background: rgba(139,92,246,0.15);
+            border-color: rgba(139,92,246,0.4);
+            color: #c4b5fd;
+        }
         .filter-btn.active {
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            background: linear-gradient(135deg, #7c3aed, #be185d);
             border-color: transparent;
             color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(124,58,237,0.4);
         }
 
-        /* Responsive */
+        /* ── Level Sections ── */
+        .level-section { margin-bottom: 3.5rem; }
+
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: rgba(15, 23, 42, 0.7);
+            border-left: 4px solid;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .level-header:hover { background: rgba(15, 23, 42, 0.9); }
+        .level-header.foundation { border-color: #3b82f6; }
+        .level-header.diploma    { border-color: #eab308; }
+        .level-header.bsc        { border-color: #ec4899; }
+        .level-header.bs         { border-color: #10b981; }
+
+        .level-icon { font-size: 2rem; flex-shrink: 0; }
+        .level-title { font-size: 1.6rem; font-weight: 800; margin: 0; color: #f1f5f9; }
+        .level-desc { font-size: 0.82rem; color: #64748b; margin: 0.2rem 0 0; }
+
+        .level-meta { margin-left: auto; text-align: right; flex-shrink: 0; }
+        .level-count { font-size: 1.25rem; font-weight: 800; color: #a78bfa; }
+        .level-credits { font-size: 0.8rem; color: #475569; font-weight: 500; margin-top: 0.1rem; }
+
+        /* ── Sub-section headers ── */
+        .sub-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #cbd5e1;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .sub-section-header i { color: #8b5cf6; }
+
+        /* ── Course Cards ── */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .course-card {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 14px;
+            padding: 1.4rem 1.4rem 1.2rem;
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .course-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -60%; width: 40%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+            transform: skewX(-15deg);
+            transition: none;
+        }
+        .course-card:hover::after {
+            animation: shimmer 0.7s ease forwards;
+        }
+        .course-card:hover {
+            transform: translateY(-6px);
+            background: rgba(20, 30, 55, 0.9);
+            border-color: rgba(139,92,246,0.4);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(139,92,246,0.15);
+        }
+
+        .course-number {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            width: 30px; height: 30px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; color: #a78bfa;
+        }
+
+        .course-name {
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.75rem;
+            padding-right: 42px;
+            line-height: 1.5;
+        }
+
+        .course-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .course-type.core {
+            background: rgba(59,130,246,0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(59,130,246,0.25);
+        }
+        .course-type.project {
+            background: rgba(234,179,8,0.15);
+            color: #fde68a;
+            border: 1px solid rgba(234,179,8,0.25);
+        }
+        .course-type.elective {
+            background: rgba(16,185,129,0.15);
+            color: #6ee7b7;
+            border: 1px solid rgba(16,185,129,0.25);
+        }
+
+        /* ── Summary Table ── */
+        .summary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 6px;
+        }
+        .summary-table thead th {
+            background: rgba(139,92,246,0.1);
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            padding: 0.75rem 1rem;
+        }
+        .summary-table thead th:first-child { border-radius: 8px 0 0 8px; }
+        .summary-table thead th:last-child  { border-radius: 0 8px 8px 0; }
+        .summary-table tbody tr { transition: all 0.2s; }
+        .summary-table tbody td {
+            background: rgba(15,23,42,0.5);
+            padding: 0.85rem 1rem;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .summary-table tbody td:first-child { border-radius: 8px 0 0 8px; border-left: 1px solid rgba(255,255,255,0.04); }
+        .summary-table tbody td:last-child  { border-radius: 0 8px 8px 0; border-right: 1px solid rgba(255,255,255,0.04); }
+        .summary-table tbody tr:hover td { background: rgba(139,92,246,0.08); }
+        .summary-table tfoot td {
+            padding: 0.85rem 1rem;
+            font-weight: 800;
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            background: rgba(139,92,246,0.12);
+            border: none;
+        }
+        .summary-table tfoot td:first-child { border-radius: 8px 0 0 8px; }
+        .summary-table tfoot td:last-child  { border-radius: 0 8px 8px 0; }
+
+        /* ── Stagger animation ── */
+        .level-section { animation: floatUp 0.6s ease both; }
+        .level-section:nth-child(1) { animation-delay: 0.1s; }
+        .level-section:nth-child(2) { animation-delay: 0.2s; }
+        .level-section:nth-child(3) { animation-delay: 0.3s; }
+        .level-section:nth-child(4) { animation-delay: 0.4s; }
+
+        /* ── Responsive ── */
         @media (max-width: 768px) {
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .level-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .level-meta {
-                margin-left: 0;
-                text-align: center;
-            }
-
-            .pathway-flow {
-                flex-direction: column;
-            }
-
-            .pathway-arrow {
-                transform: rotate(90deg);
-            }
+            .courses-grid { grid-template-columns: 1fr; }
+            .level-header { flex-direction: column; text-align: center; }
+            .level-meta { margin-left: 0; text-align: center; }
+            .pathway-flow { flex-direction: column; }
+            .pathway-arrow { transform: rotate(90deg); }
+            .hero-section { padding: 2.5rem 0 1.5rem; }
         }
+
+        /* ── Search no-results ── */
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #475569;
+            display: none;
+        }
+        .no-results i { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
     </style>
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVKYTQCM0Q"></script>
@@ -415,7 +579,7 @@
                     <i class="fas fa-arrow-left"></i>
                     Back to Home
                 </a>
-                <div class="text-white fw-semibold">Course Selection Guide</div>
+                <div class="header-title">Course Selection Guide</div>
             </div>
         </div>
     </header>
@@ -434,18 +598,22 @@
         <!-- Stats Grid -->
         <div class="stats-grid">
             <div class="stat-card">
+                <span class="stat-icon">📚</span>
                 <div class="stat-number">32+</div>
                 <div class="stat-label">Total Courses</div>
             </div>
             <div class="stat-card">
+                <span class="stat-icon">🏅</span>
                 <div class="stat-number">142</div>
                 <div class="stat-label">Total Credits</div>
             </div>
             <div class="stat-card">
+                <span class="stat-icon">🎯</span>
                 <div class="stat-number">4</div>
                 <div class="stat-label">Academic Levels</div>
             </div>
             <div class="stat-card">
+                <span class="stat-icon">🛠️</span>
                 <div class="stat-number">4</div>
                 <div class="stat-label">Projects</div>
             </div>
@@ -456,23 +624,23 @@
             <h2 class="pathway-title">🎯 Your Academic Journey</h2>
             <div class="pathway-flow">
                 <div class="pathway-step">
-                    <div class="fw-bold">Foundation</div>
-                    <div class="small text-muted ">8 Courses</div>
+                    <div class="pathway-step-label">🟦 Foundation</div>
+                    <div class="pathway-step-sub">8 Courses · 32 Credits</div>
                 </div>
                 <div class="pathway-arrow">→</div>
                 <div class="pathway-step">
-                    <div class="fw-bold">Diploma</div>
-                    <div class="small text-muted">12 + 4 Projects</div>
+                    <div class="pathway-step-label">🟨 Diploma</div>
+                    <div class="pathway-step-sub">12 + 4 Projects</div>
                 </div>
                 <div class="pathway-arrow">→</div>
                 <div class="pathway-step">
-                    <div class="fw-bold">BSc</div>
-                    <div class="small text-muted">7 Courses</div>
+                    <div class="pathway-step-label">📘 BSc</div>
+                    <div class="pathway-step-sub">7 Courses · 28 Credits</div>
                 </div>
                 <div class="pathway-arrow">→</div>
                 <div class="pathway-step">
-                    <div class="fw-bold">BS</div>
-                    <div class="small text-muted">4+ Courses</div>
+                    <div class="pathway-step-label">🟩 BS</div>
+                    <div class="pathway-step-sub">4+ Courses · 28 Credits</div>
                 </div>
             </div>
         </div>
@@ -488,19 +656,22 @@
             <p class="mt-3 small" style="color: #9ca3af;">View different pathway options with term-by-term schedules</p>
         </div>
 
-        <!-- Filters -->
-        <div class="filters-container">
-            <div class="text-center mb-3">
-                <strong>Filter by Level:</strong>
+        <!-- Controls: Search + Filters -->
+        <div class="controls-container">
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="courseSearch" placeholder="Search courses by name..." autocomplete="off">
             </div>
-            <div class="text-center">
+            <div class="filter-label">Filter by Level</div>
+            <div>
                 <button class="filter-btn active" data-filter="all">All Courses</button>
-                <button class="filter-btn" data-filter="foundation">Foundation</button>
-                <button class="filter-btn" data-filter="diploma">Diploma</button>
-                <button class="filter-btn" data-filter="bsc">BSc</button>
-                <button class="filter-btn" data-filter="bs">BS</button>
+                <button class="filter-btn" data-filter="foundation">🟦 Foundation</button>
+                <button class="filter-btn" data-filter="diploma">🟨 Diploma</button>
+                <button class="filter-btn" data-filter="bsc">📘 BSc</button>
+                <button class="filter-btn" data-filter="bs">🟩 BS</button>
             </div>
         </div>
+        <div class="no-results" id="noResults"><i class="fas fa-search"></i>No courses match your search</div>
 
         <!-- Foundation Level -->
         <div class="level-section" data-level="foundation">
@@ -575,7 +746,7 @@
             </div>
 
             <!-- Diploma in Programming -->
-            <h3 class="text-white mt-4 mb-3"><i class="fas fa-code"></i> Diploma in Programming (6 Courses)</h3>
+            <div class="sub-section-header"><i class="fas fa-code"></i> Diploma in Programming <span style="color:#475569;font-weight:400;">(6 Courses)</span></div>
             <div class="courses-grid mb-4">
                 <div class="course-card">
                     <div class="course-number">9</div>
@@ -610,7 +781,7 @@
             </div>
 
             <!-- Diploma in Data Science -->
-            <h3 class="text-white mt-4 mb-3"><i class="fas fa-chart-line"></i> Diploma in Data Science (6 Courses)</h3>
+            <div class="sub-section-header"><i class="fas fa-chart-line"></i> Diploma in Data Science <span style="color:#475569;font-weight:400;">(6 Courses)</span></div>
             <div class="courses-grid mb-4">
                 <div class="course-card">
                     <div class="course-number">15</div>
@@ -645,7 +816,7 @@
             </div>
 
             <!-- Diploma Projects -->
-            <h3 class="text-white mt-4 mb-3"><i class="fas fa-project-diagram"></i> Diploma Projects (4 Courses)</h3>
+            <div class="sub-section-header"><i class="fas fa-project-diagram"></i> Diploma Projects <span style="color:#475569;font-weight:400;">(4 Courses)</span></div>
             <div class="courses-grid">
                 <div class="course-card">
                     <div class="course-number">21</div>
@@ -737,7 +908,7 @@
                 </div>
             </div>
 
-            <h3 class="text-white mt-4 mb-3"><i class="fas fa-star"></i> Core Courses (Mandatory)</h3>
+            <div class="sub-section-header"><i class="fas fa-star"></i> Core Courses <span style="color:#475569;font-weight:400;">(Mandatory)</span></div>
             <div class="courses-grid">
                 <div class="course-card">
                     <div class="course-number">32</div>
@@ -772,7 +943,7 @@
         <div class="pathway-container mt-5">
             <h2 class="pathway-title">📊 Course Summary</h2>
             <div class="table-responsive">
-                <table class="table table-dark table-hover">
+                <table class="summary-table">
                     <thead>
                         <tr>
                             <th>Level</th>
@@ -783,42 +954,44 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><span class="badge" style="background: #3b82f6;">Foundation</span></td>
+                            <td><span class="course-type core">🟦 Foundation</span></td>
                             <td>8</td>
                             <td>32</td>
                             <td>Core Theory</td>
                         </tr>
                         <tr>
-                            <td><span class="badge" style="background: #eab308;">Diploma (Theory)</span></td>
+                            <td><span class="course-type project">🟨 Diploma Theory</span></td>
                             <td>12</td>
                             <td>~40</td>
                             <td>Core Theory</td>
                         </tr>
                         <tr>
-                            <td><span class="badge" style="background: #eab308;">Diploma (Projects)</span></td>
+                            <td><span class="course-type project">🟨 Diploma Projects</span></td>
                             <td>4</td>
                             <td>~14</td>
                             <td>Projects</td>
                         </tr>
                         <tr>
-                            <td><span class="badge" style="background: #ec4899;">BSc Level</span></td>
+                            <td><span class="course-type" style="background:rgba(236,72,153,0.15);color:#f9a8d4;border:1px solid rgba(236,72,153,0.25);">📘 BSc Level</span></td>
                             <td>7</td>
                             <td>28</td>
                             <td>Core Theory</td>
                         </tr>
                         <tr>
-                            <td><span class="badge" style="background: #10b981;">BS Core</span></td>
+                            <td><span class="course-type elective">🟩 BS Core</span></td>
                             <td>4</td>
                             <td>28</td>
                             <td>Core + Electives</td>
                         </tr>
-                        <tr class="table-primary">
-                            <td><strong>TOTAL</strong></td>
-                            <td><strong>35+</strong></td>
-                            <td><strong>142</strong></td>
-                            <td><strong>Complete Degree</strong></td>
-                        </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>🎓 Total</td>
+                            <td>35+</td>
+                            <td>142</td>
+                            <td>Complete Degree</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
@@ -854,43 +1027,98 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Filter Script -->
+    <!-- Filter + Search Script -->
     <script>
-        // Filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const levelSections = document.querySelectorAll('.level-section');
+        const searchInput = document.getElementById('courseSearch');
+        const noResults = document.getElementById('noResults');
 
+        let activeFilter = 'all';
+
+        // ── Filter by level ──
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
                 btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                levelSections.forEach(section => {
-                    if (filter === 'all') {
-                        section.style.display = 'block';
-                    } else {
-                        if (section.getAttribute('data-level') === filter) {
-                            section.style.display = 'block';
-                        } else {
-                            section.style.display = 'none';
-                        }
-                    }
-                });
+                activeFilter = btn.getAttribute('data-filter');
+                applyFilters();
             });
         });
 
-        // Smooth scroll for course cards
+        // ── Live search ──
+        if (searchInput) {
+            searchInput.addEventListener('input', applyFilters);
+        }
+
+        function applyFilters() {
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            let totalVisible = 0;
+
+            levelSections.forEach(section => {
+                const levelMatch = activeFilter === 'all' || section.getAttribute('data-level') === activeFilter;
+
+                if (!levelMatch) {
+                    section.style.display = 'none';
+                    return;
+                }
+
+                if (!query) {
+                    section.style.display = 'block';
+                    totalVisible++;
+                    // Show all cards
+                    section.querySelectorAll('.course-card').forEach(card => card.style.display = '');
+                    return;
+                }
+
+                // Filter individual cards by name
+                let sectionVisible = 0;
+                section.querySelectorAll('.course-card').forEach(card => {
+                    const name = (card.querySelector('.course-name') || {}).textContent || '';
+                    if (name.toLowerCase().includes(query)) {
+                        card.style.display = '';
+                        sectionVisible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (sectionVisible > 0) {
+                    section.style.display = 'block';
+                    totalVisible += sectionVisible;
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            if (noResults) {
+                noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+            }
+        }
+
+        // ── Card click ripple ──
         document.querySelectorAll('.course-card').forEach(card => {
             card.addEventListener('click', function () {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
+                this.style.transform = 'scale(0.97)';
+                setTimeout(() => { this.style.transform = ''; }, 180);
             });
+        });
+
+        // ── Intersection Observer for entrance animations ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease, border-color 0.3s, box-shadow 0.3s, background 0.3s';
+            observer.observe(card);
         });
     </script>
 </body>
