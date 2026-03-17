@@ -95,7 +95,7 @@
                     </h1>
                     <p class="sp-hero-subtitle">
                         YouTube is built for entertainment — <strong>StudyPlus YT</strong> transforms it into a
-                        focused learning environment. No ads, no distractions, just pure study.
+                        focused learning environment. No interruptions, no distractions, just pure study.
                     </p>
                     <div class="sp-hero-actions">
                         <a href="https://study-plus-yt-next-js.vercel.app/" target="_blank" class="sp-btn sp-btn-primary">
@@ -124,6 +124,85 @@
                 </div>
             </div>
         </section>
+
+        <!-- Video Preview -->
+        <div class="spys-video-wrapper" style="max-width:900px;margin:0 auto 0;padding:0 1rem 3rem;">
+            <div class="spys-video-label">
+                <span class="spys-video-dot"></span>
+                Live Demo Preview
+            </div>
+            <div class="spys-video-frame">
+                <div class="spys-video-chrome">
+                    <div class="spys-chrome-dots">
+                        <span class="spys-dot spys-dot-red"></span>
+                        <span class="spys-dot spys-dot-yellow"></span>
+                        <span class="spys-dot spys-dot-green"></span>
+                    </div>
+                    <div class="spys-chrome-bar">studyplus-yt.vercel.app</div>
+                </div>
+                <video
+                    class="spys-video"
+                    src="../assets/Demo.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    aria-label="StudyPlus YT demo video">
+                </video>
+            </div>
+            <div class="spys-video-glow"></div>
+        </div>
+
+        <style>
+        .spys-video-wrapper { position: relative; }
+        .spys-video-label {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: #64748b; font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 1rem; justify-content: center;
+        }
+        .spys-video-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: #ef4444;
+            animation: sp-pulse-dot 1.5s ease-in-out infinite;
+        }
+        @keyframes sp-pulse-dot {
+            0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); }
+            50%      { box-shadow: 0 0 0 6px rgba(239,68,68,0); }
+        }
+        .spys-video-frame {
+            border-radius: 14px; overflow: hidden;
+            border: 1px solid rgba(139,92,246,0.3);
+            box-shadow: 0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(139,92,246,0.08);
+            position: relative; z-index: 1;
+        }
+        .spys-video-chrome {
+            background: rgba(15,23,42,0.96);
+            padding: 0.6rem 1rem;
+            display: flex; align-items: center; gap: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .spys-chrome-dots { display: flex; gap: 0.4rem; }
+        .spys-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .spys-dot-red    { background: #ff5f57; }
+        .spys-dot-yellow { background: #febc2e; }
+        .spys-dot-green  { background: #28c840; }
+        .spys-chrome-bar {
+            background: rgba(255,255,255,0.06); border-radius: 6px;
+            padding: 0.28rem 1rem; font-size: 0.75rem; color: #64748b;
+            flex: 1; text-align: center; max-width: 240px; margin: 0 auto;
+            font-family: 'Inter', sans-serif;
+        }
+        .spys-video {
+            display: block; width: 100%;
+            max-height: 500px; object-fit: cover; background: #080c14;
+        }
+        .spys-video-glow {
+            position: absolute; inset: 20%; top: 40%;
+            filter: blur(60px);
+            background: radial-gradient(ellipse, rgba(139,92,246,0.2), transparent 70%);
+            z-index: 0; pointer-events: none;
+        }
+        </style>
 
         <!-- Problem Section -->
         <section class="sp-problem-section">
