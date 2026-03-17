@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.allgenztool.iitmhelper",
+    "sha256_cert_fingerprints": [
+      "SHA256: 20:63:BE:88:06:14:13:B4:A2:F3:23:D1:66:96:74:AF:EE:79:EB:6A:5C:23:28:A2:93:24:4B:F8:04:66:89:A2"
+    ]
+  }
+}]
