@@ -448,3 +448,81 @@ const observeElements = () => {
 
 // Initialize scroll reveal when DOM is loaded
 document.addEventListener('DOMContentLoaded', observeElements);
+
+// ==================== CUSTOM VIDEO PLAYER (StudyPlus YT) ====================
+document.addEventListener('DOMContentLoaded', () => {
+    const customPlayers = document.querySelectorAll('.spys-custom-player');
+    
+    customPlayers.forEach(player => {
+        const container = player.parentElement;
+        const video = container.querySelector('.spys-video');
+        if (!video) return;
+
+        const playBtn = player.querySelector('.spys-play-btn');
+        const playIcon = playBtn?.querySelector('svg');
+        const muteBtn = player.querySelector('.spys-control-btn[aria-label="Mute/Unmute"]');
+        const fullscreenBtn = player.querySelector('.spys-control-btn[aria-label="Fullscreen"]');
+        const timeDisplay = player.querySelector('.spys-current-time');
+        const totalTimeDisplay = player.querySelector('.spys-total-time');
+        const progressBar = player.querySelector('.spys-progress-bar');
+        const progressContainer = player.querySelector('.spys-progress-container');
+
+        const formatTime = (time) => {
+            if (isNaN(time)) return "0:00";
+            const min = Math.floor(time / 60);
+            const sec = Math.floor(time % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        };
+
+        const togglePlay = () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        };
+
+        const updatePlayIcon = () => {
+            if (video.paused) {
+                playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+                playBtn.classList.add('paused');
+            } else {
+                playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                playBtn.classList.remove('paused');
+            }
+        };
+
+        if (playBtn) {
+            playBtn.addEventListener('click', togglePlay);
+        }
+        
+        // Let user click video to play/pause
+        video.addEventListener('click', togglePlay);
+
+        video.addEventListener('play', updatePlayIcon);
+        video.addEventListener('pause', updatePlayIcon);
+
+        video.addEventListener('loadedmetadata', () => {
+            if (totalTimeDisplay) totalTimeDisplay.textContent = formatTime(video.duration);
+        });
+
+        video.addEventListener('timeupdate', () => {
+            if (timeDisplay) timeDisplay.textContent = formatTime(video.currentTime);
+            if (progressBar) {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+        });
+
+        if (progressContainer) {
+            progressContainer.addEventListener('click', (e) => {
+                const rect = progressContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                video.currentTime = pos * video.duration;
+            });
+        }
+        
+        // Initial setup
+        updatePlayIcon();
+    });
+});
