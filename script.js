@@ -1,3 +1,61 @@
+// ==================== PWA: SERVICE WORKER ====================
+if ('serviceWorker' in navigator) {
+    // Use root-relative path so it works from any sub-page
+    const swPath = document.location.pathname.startsWith('/pages/') ? '../sw.js' : '/sw.js';
+    navigator.serviceWorker.register(swPath, { scope: '/' })
+        .then(reg => {
+            // Check for updates every 60 seconds
+            setInterval(() => reg.update(), 60_000);
+        })
+        .catch(err => console.warn('[SW] Registration failed:', err));
+}
+
+// ==================== PWA: INSTALL PROMPT ====================
+let _deferredInstallPrompt = null;
+
+window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    _deferredInstallPrompt = e;
+    // Show banner only if user hasn't dismissed before
+    if (!localStorage.getItem('pwa-install-dismissed')) {
+        showInstallBanner();
+    }
+});
+
+window.addEventListener('appinstalled', () => {
+    hideInstallBanner();
+    _deferredInstallPrompt = null;
+    localStorage.setItem('pwa-install-dismissed', '1');
+});
+
+function showInstallBanner() {
+    const banner = document.getElementById('pwaInstallBanner');
+    if (banner) {
+        setTimeout(() => banner.classList.add('pwa-banner-visible'), 800);
+    }
+}
+
+function hideInstallBanner() {
+    const banner = document.getElementById('pwaInstallBanner');
+    if (banner) banner.classList.remove('pwa-banner-visible');
+}
+
+async function triggerPWAInstall() {
+    if (!_deferredInstallPrompt) return;
+    _deferredInstallPrompt.prompt();
+    const { outcome } = await _deferredInstallPrompt.userChoice;
+    _deferredInstallPrompt = null;
+    if (outcome === 'accepted') {
+        localStorage.setItem('pwa-install-dismissed', '1');
+    }
+    hideInstallBanner();
+}
+
+function dismissInstallBanner() {
+    hideInstallBanner();
+    localStorage.setItem('pwa-install-dismissed', '1');
+}
+
 // ==================== NAVIGATION ====================
 document.addEventListener('DOMContentLoaded', function () {
     // Mobile menu toggle
